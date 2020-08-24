@@ -15,7 +15,7 @@
 import { WxcButton } from 'weex-ui';
 export default {
   components: { WxcButton },
-}
+};
 </script>
 <style lang="less">
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
-    <router-view/>
-    <tab-bar />
+    <tab-bar>
+      <router-view />
+    </tab-bar>
   </div>
 </template>
 
@@ -11,8 +12,8 @@ export default {
   name: 'App',
   components: {
     TabBar,
-  }
-}
+  },
+};
 </script>
 
 <style lang="less" scoped>
