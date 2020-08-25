@@ -1,21 +1,46 @@
 <template>
   <div class="wrapper">
     <tab-bar>
-      <router-view />
+      <home class="item-container"/>
+      <find class="item-container"/>
+      <add class="item-container"/>
+      <about class="item-container"/>
+      <personal class="item-container"/>
     </tab-bar>
   </div>
 </template>
 
 <script>
 import TabBar from './components/tabBar.vue';
+import Home from '@/pages/home/index';
+import Find from '@/pages/find/index';
+import Add from '@/pages/add/index';
+import About from '@/pages/about/index';
+import Personal from '@/pages/personal/index';
 export default {
   name: 'App',
   components: {
     TabBar,
+    Home,
+    Find,
+    Add,
+    About,
+    Personal,
   },
 };
 </script>
 
 <style lang="less" scoped>
+@import '~@/assets/style/const.less';
+// @import '~@/assets/font/iconfont.css';
 
+.wrapper {
+  background: @white-color;
+  .item-container {
+    width: 750px;
+    background-color: @white-color;
+    align-items: center;
+    justify-content: center;
+  }
+}
 </style>

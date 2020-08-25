@@ -1,6 +1,8 @@
 /* global Vue */
 
 /* weex initialized here, please do not move this line */
+// import '@/assets/font/iconfont.css';
+
 const { router } = require('./router')
 const App = require('@/index.vue')
 

@@ -5,6 +5,7 @@
  * desc: 底部导航
  */
 import { WxcTabBar } from 'weex-ui';
+import { tabStyles } from '@/const/config.js';
 import { tabBarArr } from '@/const/common.js';
 
 export default {
@@ -13,22 +14,26 @@ export default {
   data () {
     return {
       tabTitles: tabBarArr,
-      tabStyles: {
-        activeTitleColor: '#ad5389',
-      },
+      tabStyles: tabStyles,
+      wrapBgColor: '#fff',
+      // contentStyle: null,
     };
   },
+  created () {
+  },
   methods: {
-    wxcTabBarCurrentTabSelected(page) {
-      // console.log(page);
-      // console.log(tabBarArr[page.page].url);
-    },
+
   },
 };
 </script>
 <template>
-  <wxc-tab-bar :tab-titles="tabTitles" @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
+  <wxc-tab-bar ref="wxc-tab-bar" :tab-titles="tabTitles" :wrap-bg-color="wrapBgColor" :tab-styles="tabStyles">
     <slot />
+    <!-- <div class="item-container" :style="contentStyle"><text>首页</text></div>
+    <div class="item-container" :style="contentStyle"><text>11</text></div>
+    <div class="item-container" :style="contentStyle"><text>22</text></div>
+    <div class="item-container" :style="contentStyle"><text>33</text></div>
+    <div class="item-container" :style="contentStyle"><text>44</text></div> -->
   </wxc-tab-bar>
 </template>
 <style lang="less" scoped>
