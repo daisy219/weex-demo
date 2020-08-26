@@ -4822,20 +4822,32 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _weexUi = __webpack_require__(43);
+
+exports.default = {
+  name: 'home',
+  components: { WxcEpSlider: _weexUi.WxcEpSlider },
+  data: function data() {
+    return {
+      place: '上海',
+      sliderId: 1,
+      cardLength: 2,
+      bannerList: [1, 2],
+      menuList: [{ title: '整租', url: 'home' }, { title: '合租', url: 'room' }, { title: '公寓', url: 'park' }, { title: '短租', url: 'inn' }],
+      cardSize: {
+        width: 400,
+        height: 300,
+        spacing: 0,
+        scale: 0.8
+      }
+    };
+  }
+};
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2020/08/24
  * desc: 首页
  */
-
-exports.default = {
-  name: 'home',
-  data: function data() {
-    return {
-      place: '上海'
-    };
-  }
-};
 
 /***/ }),
 /* 20 */
@@ -4848,15 +4860,139 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["top-part", "clearfix"]
   }, [_c('div', {
     staticClass: ["search"]
-  }, [_c('text', [_vm._v("\n        " + _vm._s(_vm.place) + "\n      ")])]), _vm._m(0)])])
+  }, [_c('text', {
+    staticClass: ["place"]
+  }, [_vm._v(_vm._s(_vm.place))]), _c('image', {
+    staticStyle: {
+      width: "30px",
+      height: "30px"
+    },
+    attrs: {
+      "src": "/assets/images/home/bottom-solid-arrow.png"
+    }
+  }), _c('div', {
+    staticClass: ["line"]
+  }), _c('image', {
+    staticStyle: {
+      width: "30px",
+      height: "30px"
+    },
+    attrs: {
+      "src": "/assets/images/home/search.png"
+    }
+  }), _c('text', {
+    staticClass: ["info"]
+  }, [_vm._v("您想住哪里？")])]), _vm._m(0)]), _c('div', {
+    staticClass: ["banner-part"]
+  }, [_c('wxc-ep-slider', {
+    attrs: {
+      "sliderId": _vm.sliderId,
+      "cardLength": _vm.cardLength,
+      "cardS": _vm.cardSize,
+      "selectIndex": 0,
+      "autoPlay": true,
+      "interval": 2400
+    }
+  }, _vm._l((_vm.bannerList), function(v, index) {
+    return _c('div', {
+      key: index,
+      class: ['slider', ("slider" + index)],
+      attrs: {
+        "slot": ("card" + index + "_" + _vm.sliderId)
+      },
+      slot: ("card" + index + "_" + _vm.sliderId)
+    }, [_c('image', {
+      staticStyle: {
+        width: "400px",
+        height: "300px",
+        borderRadius: "8px"
+      },
+      attrs: {
+        "resize": "stretch",
+        "src": ("/assets/images/home/banner" + (index + 1) + ".jpg")
+      }
+    })])
+  }))], 1), _c('div', {
+    staticClass: ["menu-part"]
+  }, _vm._l((_vm.menuList), function(v, index) {
+    return _c('div', {
+      key: index,
+      staticClass: ["menu-item"]
+    }, [_c('image', {
+      staticStyle: {
+        width: "100px",
+        height: "100px"
+      },
+      attrs: {
+        "resize": "stretch",
+        "src": ("/assets/images/home/" + (v.url) + ".png")
+      }
+    }), _c('text', {
+      staticClass: ["menu-title"]
+    }, [_vm._v(_vm._s(v.title))])])
+  })), _vm._m(1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["message"]
-  }, [_c('img', {
+  }, [_c('image', {
+    staticStyle: {
+      width: "60px",
+      height: "60px"
+    },
     attrs: {
+      "resize": "stretch",
       "src": "/assets/images/home/message.png"
     }
   })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["hot-part"]
+  }, [_c('div', {
+    staticClass: ["hot-title"]
+  }, [_c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("热租居室")]), _c('image', {
+    staticStyle: {
+      width: "30px",
+      height: "30px"
+    },
+    attrs: {
+      "src": "/assets/images/home/right-arrow.png"
+    }
+  })]), _c('div', {
+    staticClass: ["hot-card"]
+  }, [_c('div', {
+    staticClass: ["hot-card-item"],
+    staticStyle: {
+      height: "300px"
+    }
+  }, [_c('div', {
+    staticClass: ["tag"]
+  }, [_vm._v("一居")]), _c('text', {
+    staticClass: ["hot-card-item-title"]
+  }, [_vm._v("你的独立日")]), _c('text', {
+    staticClass: ["hot-card-item-info"]
+  }, [_vm._v("一人畅享 拒绝束缚")])]), _c('div', {
+    staticStyle: {
+      justifyContent: "space-between"
+    }
+  }, [_c('div', {
+    staticClass: ["hot-card-item"]
+  }, [_c('div', {
+    staticClass: ["tag"]
+  }, [_vm._v("二居")]), _c('text', {
+    staticClass: ["hot-card-item-title"]
+  }, [_vm._v("爱就宅一起")]), _c('text', {
+    staticClass: ["hot-card-item-info"]
+  }, [_vm._v("生活相伴 完整体验")])]), _c('div', {
+    staticClass: ["hot-card-item"]
+  }, [_c('div', {
+    staticClass: ["tag"]
+  }, [_vm._v("三居")]), _c('text', {
+    staticClass: ["hot-card-item-title"]
+  }, [_vm._v("都市幸福家")]), _c('text', {
+    staticClass: ["hot-card-item-info"]
+  }, [_vm._v("温暖时刻 欢乐满屋")])])])])])
 }]}
 module.exports.render._withStripped = true
 
