@@ -4930,7 +4930,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }), _c('text', {
       staticClass: ["menu-title"]
     }, [_vm._v(_vm._s(v.title))])])
-  })), _vm._m(1)])
+  })), _vm._m(1), _vm._m(2)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["message"]
@@ -4948,7 +4948,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["hot-part"]
   }, [_c('div', {
-    staticClass: ["hot-title"]
+    staticClass: ["home-title"]
   }, [_c('text', {
     staticClass: ["title"]
   }, [_vm._v("热租居室")]), _c('image', {
@@ -4993,6 +4993,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("都市幸福家")]), _c('text', {
     staticClass: ["hot-card-item-info"]
   }, [_vm._v("温暖时刻 欢乐满屋")])])])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('div', {
+    staticClass: ["home-title"]
+  }, [_c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("附近地图")]), _c('image', {
+    staticStyle: {
+      width: "30px",
+      height: "30px"
+    },
+    attrs: {
+      "src": "/assets/images/home/right-arrow.png"
+    }
+  })])])
 }]}
 module.exports.render._withStripped = true
 

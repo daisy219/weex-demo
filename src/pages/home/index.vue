@@ -60,7 +60,7 @@ export default {
       </div>
     </div>
     <div class="hot-part">
-      <div class="hot-title">
+      <div class="home-title">
         <text class="title">热租居室</text>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
@@ -84,6 +84,12 @@ export default {
         </div>
       </div>
     </div>
+    <div>
+      <div class="home-title">
+        <text class="title">附近地图</text>
+        <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
+      </div>
+    </div>
   </div>
 </template>
 <style lang="less" scoped>
@@ -91,6 +97,16 @@ export default {
 @import '~@/assets/style/common.less';
 
 .home-index-page {
+  .home-title {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    .title {
+      font-size: 40px;
+      font-weight: bold;
+    }
+  }
   .top-part {
     width: 100%;
     padding: 20px;
@@ -151,16 +167,6 @@ export default {
   .hot-part {
     width: 100%;
     padding: 0 30px;
-    .hot-title {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 30px;
-      .title {
-        font-size: 40px;
-        font-weight: bold;
-      }
-    }
     .hot-card {
       flex-direction: row;
       justify-content: space-between;
