@@ -6,7 +6,7 @@ export const tabStyles = {
   isActiveTitleBold: true,
   iconWidth: 70,
   iconHeight: 70,
-  width: 160,
+  width: 150,
   height: 120,
   fontSize: 24,
   activeBottomColor: '#FFC900',

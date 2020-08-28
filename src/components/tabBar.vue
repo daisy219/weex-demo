@@ -27,7 +27,7 @@ export default {
 };
 </script>
 <template>
-  <wxc-tab-bar ref="wxc-tab-bar" :tab-titles="tabTitles" :wrap-bg-color="wrapBgColor" :tab-styles="tabStyles">
+  <wxc-tab-bar class="tab-bar" ref="wxc-tab-bar" :tab-titles="tabTitles" :wrap-bg-color="wrapBgColor" :tab-styles="tabStyles">
     <slot />
     <!-- <div class="item-container" :style="contentStyle"><text>首页</text></div>
     <div class="item-container" :style="contentStyle"><text>11</text></div>

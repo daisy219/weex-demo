@@ -5,10 +5,11 @@
  * desc: 首页
  */
 import { WxcEpSlider } from 'weex-ui';
+import DetailCardStand from '@/components/card/detailCardStand';
 
 export default {
   name: 'home',
-  components: { WxcEpSlider },
+  components: { WxcEpSlider, DetailCardStand },
   data () {
     return {
       place: '上海',
@@ -84,11 +85,12 @@ export default {
         </div>
       </div>
     </div>
-    <div>
+    <div class="near-card">
       <div class="home-title">
         <text class="title">附近地图</text>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
+      <detail-card-stand />
     </div>
   </div>
 </template>
@@ -108,7 +110,7 @@ export default {
     }
   }
   .top-part {
-    width: 100%;
+    width: @common-max-width;
     padding: 20px;
     background: @main-color;
     flex-direction: row;
@@ -140,7 +142,7 @@ export default {
     }
   }
   .banner-part {
-    width: 100%;
+    width: @common-max-width;
     padding: 20px 0;
     background-image: linear-gradient(to bottom, @main-color, @white-color);
     .slider {
@@ -152,7 +154,7 @@ export default {
     }
   }
   .menu-part {
-    width: 100%;
+    width: @common-max-width;
     flex-direction: row;
     align-items: center;
     .menu-item {
@@ -165,7 +167,7 @@ export default {
     }
   }
   .hot-part {
-    width: 100%;
+    width: @common-max-width;
     padding: 0 30px;
     .hot-card {
       flex-direction: row;
@@ -201,6 +203,10 @@ export default {
         }
       }
     }
+  }
+  .near-card {
+    width: @common-max-width;
+    padding: 0 30px;
   }
 }
 </style>

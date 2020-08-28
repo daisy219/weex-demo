@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="app-index-wrapper">
     <tab-bar>
       <home class="item-container"/>
       <find class="item-container"/>
@@ -30,14 +30,20 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import '~@/assets/style/const.less';
 // @import '~@/assets/font/iconfont.css';
 
-.wrapper {
+.app-index-wrapper {
   background: @white-color;
+  .tab-bar {
+    .tab-title-list {
+      position: fixed;
+      bottom: 0;
+    }
+  }
   .item-container {
-    width: 750px;
+    width: @common-max-width;
     background-color: @white-color;
     align-items: center;
     justify-content: center;
