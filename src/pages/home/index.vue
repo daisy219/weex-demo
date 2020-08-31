@@ -142,6 +142,7 @@ export default {
         </div>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
+      <detail-card-stand />
     </div>
   </div>
 </template>
@@ -267,6 +268,10 @@ export default {
         }
       }
     }
+  }
+  .near-card {
+    width: @common-max-width;
+    padding: 0 30px;
   }
 }
 </style>

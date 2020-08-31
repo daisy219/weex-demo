@@ -23575,7 +23575,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "cardInfo": item
       }
     })
-  }))]), _vm._m(6)])
+  }))]), _c('div', {
+    staticClass: ["common-part"]
+  }, [_vm._m(6), _c('detail-card-stand')], 1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["message"]
@@ -23708,8 +23710,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["common-part"]
-  }, [_c('div', {
     staticClass: ["home-title"]
   }, [_c('div', {
     staticClass: ["direction-row"]
@@ -23723,7 +23723,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": "/assets/images/home/right-arrow.png"
     }
-  })])])
+  })])
 }]}
 module.exports.render._withStripped = true
 
