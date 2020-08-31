@@ -6,28 +6,31 @@
  */
 import { WxcEpSlider } from 'weex-ui';
 import DetailCardStand from '@/components/card/detailCardStand';
+import MapCard from '@/components/card/mapCard';
+import BriefCard from '@/components/card/briefCard';
+import { homeMenuList } from '@/const/home.js';
+import { homeList, mapInfo, lifeList, newsList } from '@/service/home.js';
 
 export default {
   name: 'home',
-  components: { WxcEpSlider, DetailCardStand },
+  components: { WxcEpSlider, DetailCardStand, MapCard, BriefCard },
   data () {
     return {
       place: '上海',
       sliderId: 1,
       cardLength: 2,
       bannerList: [1, 2],
-      menuList: [
-        {title: '整租', url: 'home'},
-        {title: '合租', url: 'room'},
-        {title: '公寓', url: 'park'},
-        {title: '短租', url: 'inn'},
-      ],
+      menuList: homeMenuList,
       cardSize: {
         width: 400,
         height: 300,
         spacing: 0,
         scale: 0.8,
       },
+      homeList: homeList,
+      mapInfo: mapInfo,
+      lifeList: lifeList,
+      newsList: newsList,
     };
   },
 };
@@ -60,7 +63,7 @@ export default {
         <text class="menu-title">{{ v.title }}</text>
       </div>
     </div>
-    <div class="hot-part">
+    <div class="hot-part common-part">
       <div class="home-title">
         <text class="title">热租居室</text>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
@@ -85,12 +88,60 @@ export default {
         </div>
       </div>
     </div>
-    <div class="near-card">
+    <div class="near-card common-part">
       <div class="home-title">
         <text class="title">附近地图</text>
+        <div class="direction-row align-end">
+          <text class="info">徐汇区衡山路</text>
+          <image style="width:30px; height:30px" src="/assets/images/home/update.png"/>
+        </div>
+      </div>
+      <map-card :map-info="mapInfo"/>
+    </div>
+
+    <div class="common-part">
+      <div class="home-title">
+        <text class="title">相遇HOME-整租</text>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
-      <detail-card-stand />
+      <div class="direction-row">
+        <detail-card-stand v-for="(item, index) in homeList" :key="index" :card-info="item"/>
+      </div>
+    </div>
+
+    <div class="common-part">
+      <div class="home-title">
+        <div class="direction-row align-end">
+          <text class="title">相遇生活</text>
+          <text class="desc">美好青年社区</text>
+        </div>
+        <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
+      </div>
+      <div class="direction-row">
+        <brief-card v-for="(item, index) in lifeList" :key="index" :card-info="item"/>
+      </div>
+    </div>
+
+    <div class="common-part">
+      <div class="home-title">
+        <div class="direction-row align-end">
+          <text class="title">相遇故事</text>
+          <text class="desc">新闻大事记</text>
+        </div>
+        <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
+      </div>
+      <div class="direction-row">
+        <brief-card v-for="(item, index) in newsList" :key="index" :card-info="item"/>
+      </div>
+    </div>
+
+    <div class="common-part">
+      <div class="home-title">
+        <div class="direction-row">
+          <text class="title">猜你喜欢</text>
+        </div>
+        <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
+      </div>
     </div>
   </div>
 </template>
@@ -99,6 +150,12 @@ export default {
 @import '~@/assets/style/common.less';
 
 .home-index-page {
+  .common-part {
+    width: @common-max-width;
+    padding: 0 30px;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
   .home-title {
     flex-direction: row;
     align-items: center;
@@ -107,6 +164,16 @@ export default {
     .title {
       font-size: 40px;
       font-weight: bold;
+    }
+    .desc {
+      font-size: 26px;
+      margin-left: 10px;
+      color: @light-font-color;
+    }
+    .info {
+      font-size: 26px;
+      margin-right: 10px;
+      color: @light-font-color;
     }
   }
   .top-part {
@@ -150,7 +217,6 @@ export default {
       height: 300px;
       align-items: center;
       justify-content: center;
-      
     }
   }
   .menu-part {
@@ -167,8 +233,6 @@ export default {
     }
   }
   .hot-part {
-    width: @common-max-width;
-    padding: 0 30px;
     .hot-card {
       flex-direction: row;
       justify-content: space-between;
@@ -203,10 +267,6 @@ export default {
         }
       }
     }
-  }
-  .near-card {
-    width: @common-max-width;
-    padding: 0 30px;
   }
 }
 </style>

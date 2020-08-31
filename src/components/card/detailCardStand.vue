@@ -2,7 +2,7 @@
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2020/08/27
- * desc: 
+ * desc: 详细信息窄卡片
  */
 
 export default {
@@ -10,11 +10,11 @@ export default {
   data() {
     return {
 
-    }
+    };
   },
 
   props: {
-  // msg: {type: string, default: ''}
+    cardInfo: { type: Object, default() { return {}; } },
   },
 
   created() {
@@ -25,25 +25,27 @@ export default {
 
   },
 
- }
+};
 </script>
 
 <template>
 <div class="detail-card-stand-page">
-  <image class="image" src="/assets/images/home/room1.jpg"/>
-  <text class="title">世外桃源</text>
+  <image class="image" :src="cardInfo.url"/>
+  <text class="title">{{ cardInfo.title }}</text>
   <div class="info">
-    <text>浦东新区</text>
-    <text>北蔡</text>
-    <text>4室3厅</text>
-    <text>178m</text>
+    <text>{{ cardInfo.district }}.</text>
+    <text>{{ cardInfo.town }}</text>
+  </div>
+  <div class="info">
+    <text>{{ cardInfo.room }} | </text>
+    <text>{{ cardInfo.area }}m²</text>
   </div>
   <div class="tag-group">
-    <text></text>
+    <text v-for="tag in cardInfo.tags" :key="tag" class="tag">{{ tag }}</text>
   </div>
   <div class="price">
-    <text>2121</text>
-    <text>元/月</text>
+    <text class="num">{{ cardInfo.price }}</text>
+    <text class="unit">元/月</text>
   </div>
 </div>
 </template>
@@ -54,21 +56,48 @@ export default {
 
 .detail-card-stand-page {
   margin-right: 30px;
+  width: 300px;
   .image {
-    width:300px;
-    height:200px;
+    width: 300px;
+    height: 200px;
     border-radius: 4px;
   }
   .title {
+    lines: 1;
     font-weight: bold;
     font-size: 34px;
-    line-height: 80px;
+    line-height: 70px;
   }
   .info {
     flex-direction: row;
-    text {
-      font-size: 26px;
+    p {
+      font-size: 22px;
+      line-height: 30px;
       color: @light-font-color;
+    }
+  }
+  .tag-group {
+    flex-direction: row;
+    .tag {
+      font-size: 20px;
+      padding: 4px 8px;
+      margin: 10px 10px 10px 0;
+      color: #3a7bd5;
+      background-color: rgb(198, 226, 255);
+    }
+  }
+  .price {
+    flex-direction: row;
+    font-size: 24px;
+    align-items: flex-end;
+    .num {
+      color: @red-color;
+      font-weight: bold;
+    }
+    .unit {
+      font-size: 22px;
+      margin-left: 10px;
+      color: @red-color;
     }
   }
 }
