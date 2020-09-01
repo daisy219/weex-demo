@@ -4985,7 +4985,7 @@ __vue_styles__.push(__webpack_require__(19)
 __vue_exports__ = __webpack_require__(20)
 
 /* template */
-var __vue_template__ = __webpack_require__(283)
+var __vue_template__ = __webpack_require__(293)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -5039,19 +5039,19 @@ var _index = __webpack_require__(259);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(267);
+var _index3 = __webpack_require__(277);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _index5 = __webpack_require__(271);
+var _index5 = __webpack_require__(281);
 
 var _index6 = _interopRequireDefault(_index5);
 
-var _index7 = __webpack_require__(275);
+var _index7 = __webpack_require__(285);
 
 var _index8 = _interopRequireDefault(_index7);
 
-var _index9 = __webpack_require__(279);
+var _index9 = __webpack_require__(289);
 
 var _index10 = _interopRequireDefault(_index9);
 
@@ -23207,7 +23207,7 @@ __vue_styles__.push(__webpack_require__(260)
 __vue_exports__ = __webpack_require__(261)
 
 /* template */
-var __vue_template__ = __webpack_require__(266)
+var __vue_template__ = __webpack_require__(276)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -23268,32 +23268,31 @@ Object.defineProperty(exports, "__esModule", {
 
 var _weexUi = __webpack_require__(6);
 
+var _home = __webpack_require__(274);
+
+var _home2 = __webpack_require__(275);
+
 var _detailCardStand = __webpack_require__(262);
 
 var _detailCardStand2 = _interopRequireDefault(_detailCardStand);
 
-var _mapCard = __webpack_require__(284);
+var _detailCardAcross = __webpack_require__(294);
+
+var _detailCardAcross2 = _interopRequireDefault(_detailCardAcross);
+
+var _mapCard = __webpack_require__(266);
 
 var _mapCard2 = _interopRequireDefault(_mapCard);
 
-var _briefCard = __webpack_require__(288);
+var _briefCard = __webpack_require__(270);
 
 var _briefCard2 = _interopRequireDefault(_briefCard);
 
-var _home = __webpack_require__(292);
-
-var _home2 = __webpack_require__(293);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* COMPONENT DOCUMENT
- * author: zhaoyang
- * date: 2020/08/24
- * desc: 首页
- */
 exports.default = {
   name: 'home',
-  components: { WxcEpSlider: _weexUi.WxcEpSlider, DetailCardStand: _detailCardStand2.default, MapCard: _mapCard2.default, BriefCard: _briefCard2.default },
+  components: { WxcEpSlider: _weexUi.WxcEpSlider, DetailCardStand: _detailCardStand2.default, MapCard: _mapCard2.default, BriefCard: _briefCard2.default, DetailCardAcross: _detailCardAcross2.default, WxcButton: _weexUi.WxcButton },
   data: function data() {
     return {
       place: '上海',
@@ -23310,10 +23309,20 @@ exports.default = {
       homeList: _home2.homeList,
       mapInfo: _home2.mapInfo,
       lifeList: _home2.lifeList,
-      newsList: _home2.newsList
+      newsList: _home2.newsList,
+      likeList: _home2.likeList
     };
+  },
+
+  methods: {
+    wxcButtonClicked: function wxcButtonClicked() {}
   }
 };
+/* COMPONENT DOCUMENT
+ * author: zhaoyang
+ * date: 2020/08/24
+ * desc: 首页
+ */
 
 /***/ }),
 /* 262 */
@@ -23438,7 +23447,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["info"]
   }, [_c('text', [_vm._v(_vm._s(_vm.cardInfo.district) + ".")]), _c('text', [_vm._v(_vm._s(_vm.cardInfo.town))])]), _c('div', {
     staticClass: ["info"]
-  }, [_c('text', [_vm._v(_vm._s(_vm.cardInfo.room) + " | ")]), _c('text', [_vm._v(_vm._s(_vm.cardInfo.area) + "m²")])]), _c('div', {
+  }, [_c('text', [_vm._v(_vm._s(_vm.cardInfo.houseType) + " | ")]), _c('text', [_vm._v(_vm._s(_vm.cardInfo.area) + "m²")])]), _c('div', {
     staticClass: ["tag-group"]
   }, _vm._l((_vm.cardInfo.tags), function(tag) {
     return _c('text', {
@@ -23457,6 +23466,387 @@ module.exports.render._withStripped = true
 
 /***/ }),
 /* 266 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(267)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(268)
+
+/* template */
+var __vue_template__ = __webpack_require__(269)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "D:\\own\\weex-demo\\src\\components\\card\\mapCard.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-a34658a0"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "direction-row": {
+    "flexDirection": "row"
+  },
+  "justify-between": {
+    "justifyContent": "space-between"
+  },
+  "align-end": {
+    "alignItems": "flex-end"
+  },
+  "align-center": {
+    "alignItems": "center"
+  },
+  "map-card-page": {
+    "height": "200",
+    "backgroundColor": "#f5f5f5",
+    "flexDirection": "row",
+    "justifyContent": "space-between",
+    "alignItems": "center",
+    "paddingTop": "20",
+    "paddingRight": "20",
+    "paddingBottom": "20",
+    "paddingLeft": "20"
+  }
+}
+
+/***/ }),
+/* 268 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* COMPONENT DOCUMENT
+ * author: zhaoyang
+ * date: 2020/08/31
+ * desc: 带地图的卡片
+ */
+
+exports.default = {
+  name: 'mapCard',
+  data: function data() {
+    return {};
+  },
+
+  props: {
+    mapInfo: { type: Object, default: function _default() {
+        return {};
+      }
+    }
+  }
+};
+
+/***/ }),
+/* 269 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["map-card-page"]
+  }, [_c('div', [_c('text', {
+    staticClass: ["title"]
+  }, [_vm._v(_vm._s(_vm.mapInfo.title))]), _c('div', {
+    staticClass: ["direction-row", "align-end"]
+  }, [_c('text', {
+    staticClass: ["price"]
+  }, [_vm._v(_vm._s(_vm.mapInfo.price))]), _c('text', {
+    staticClass: ["unit"]
+  }, [_vm._v("元/月起")]), _c('text', {
+    staticClass: ["info"]
+  }, [_vm._v(".在租")]), _c('text', {
+    staticClass: ["rent"]
+  }, [_vm._v(_vm._s(_vm.mapInfo.rent))]), _c('text', {
+    staticClass: ["info"]
+  }, [_vm._v("套")])]), _c('text', {
+    staticClass: ["distance"]
+  }, [_vm._v("距您" + _vm._s(_vm.mapInfo.distance) + "米")])]), _c('image', {
+    staticStyle: {
+      width: "100px",
+      height: "100px"
+    },
+    attrs: {
+      "src": "/assets/images/home/map.png"
+    }
+  })])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 270 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(271)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(272)
+
+/* template */
+var __vue_template__ = __webpack_require__(273)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "D:\\own\\weex-demo\\src\\components\\card\\briefCard.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-574cb464"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 271 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "direction-row": {
+    "flexDirection": "row"
+  },
+  "justify-between": {
+    "justifyContent": "space-between"
+  },
+  "align-end": {
+    "alignItems": "flex-end"
+  },
+  "align-center": {
+    "alignItems": "center"
+  },
+  "brief-card-page": {
+    "marginRight": "30",
+    "width": "300"
+  }
+}
+
+/***/ }),
+/* 272 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* COMPONENT DOCUMENT
+ * author: zhaoyagn
+ * date: 2020/08/31
+ * desc: 简介卡片
+ */
+
+exports.default = {
+  name: 'briefCard',
+  data: function data() {
+    return {};
+  },
+
+
+  props: {
+    cardInfo: { type: Object, default: function _default() {
+        return {};
+      }
+    }
+  }
+
+};
+
+/***/ }),
+/* 273 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["brief-card-page"]
+  }, [_c('image', {
+    staticClass: ["image"],
+    attrs: {
+      "src": _vm.cardInfo.url
+    }
+  }), _c('text', {
+    staticClass: ["title"]
+  }, [_vm._v(_vm._s(_vm.cardInfo.title))]), _c('text', {
+    staticClass: ["info"]
+  }, [_vm._v(_vm._s(_vm.cardInfo.info))])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 274 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var homeMenuList = exports.homeMenuList = [{ title: '整租', url: 'home' }, { title: '合租', url: 'room' }, { title: '公寓', url: 'park' }, { title: '短租', url: 'inn' }];
+
+/***/ }),
+/* 275 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+// 模拟数据
+var homeList = exports.homeList = [{
+  url: '/assets/images/home/room1.jpg',
+  title: '世外桃源额为嗡嗡嗡',
+  district: '浦东新区',
+  town: '北蔡',
+  houseType: '4室3厅',
+  area: '178',
+  tags: ['立即入住', '整租'],
+  price: 16000
+}, {
+  url: '/assets/images/home/room1.jpg',
+  title: '世外桃源',
+  district: '浦东新区',
+  town: '北蔡',
+  houseType: '4室3厅',
+  area: '178',
+  tags: ['立即入住', '整租'],
+  price: 16000
+}, {
+  url: '/assets/images/home/room1.jpg',
+  title: '世外桃源',
+  district: '浦东新区',
+  town: '北蔡',
+  houseType: '4室3厅',
+  area: '178',
+  tags: ['立即入住', '整租'],
+  price: 16000
+}];
+
+var mapInfo = exports.mapInfo = {
+  title: '枫林路167号',
+  price: 5000,
+  rent: 1,
+  distance: 1885
+};
+
+var lifeList = exports.lifeList = [{
+  url: '/assets/images/home/hot1.jpg',
+  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
+  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
+}, {
+  url: '/assets/images/home/hot2.jpg',
+  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
+  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
+}, {
+  url: '/assets/images/home/hot3.jpg',
+  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
+  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
+}];
+
+var newsList = exports.newsList = [{
+  url: '/assets/images/home/news1.jpg',
+  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
+  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
+}, {
+  url: '/assets/images/home/news2.jpg',
+  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
+  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
+}, {
+  url: '/assets/images/home/news3.jpg',
+  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
+  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
+}];
+var likeList = exports.likeList = [{
+  url: '/assets/images/home/room1.jpg',
+  type: '整租',
+  title: '东方悦居',
+  houseType: '2室2厅1卫',
+  area: '178',
+  direction: '南北',
+  station: '七宝站',
+  distance: 676,
+  tags: ['立即入住', '整租'],
+  price: 16000
+}, {
+  url: '/assets/images/home/room1.jpg',
+  type: '整租',
+  title: '万科城市花园一期',
+  houseType: '2室2厅1卫',
+  area: '178',
+  direction: '南北',
+  station: '七宝站',
+  distance: 676,
+  tags: ['立即入住', '整租'],
+  price: 16000
+}, {
+  url: '/assets/images/home/room1.jpg',
+  type: '整租',
+  title: '世华锦城',
+  houseType: '2室2厅1卫',
+  area: '178',
+  direction: '南北',
+  station: '七宝站',
+  distance: 676,
+  tags: ['立即入住', '整租'],
+  price: 16000
+}];
+
+/***/ }),
+/* 276 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23577,7 +23967,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   }))]), _c('div', {
     staticClass: ["common-part"]
-  }, [_vm._m(6), _c('detail-card-stand')], 1)])
+  }, [_vm._m(6), _vm._l((_vm.likeList), function(item, index) {
+    return _c('detail-card-across', {
+      key: index,
+      attrs: {
+        "cardInfo": item
+      }
+    })
+  })], 2), _c('wxc-button', {
+    attrs: {
+      "text": "查看更多房源",
+      "type": "white"
+    },
+    on: {
+      "wxcButtonClicked": _vm.wxcButtonClicked
+    }
+  })], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["message"]
@@ -23728,21 +24133,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 267 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(268)
+__vue_styles__.push(__webpack_require__(278)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(269)
+__vue_exports__ = __webpack_require__(279)
 
 /* template */
-var __vue_template__ = __webpack_require__(270)
+var __vue_template__ = __webpack_require__(280)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -23772,13 +24177,13 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 268 */
+/* 278 */
 /***/ (function(module, exports) {
 
 module.exports = {}
 
 /***/ }),
-/* 269 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23802,7 +24207,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 270 */
+/* 280 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23813,21 +24218,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 271 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(272)
+__vue_styles__.push(__webpack_require__(282)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(273)
+__vue_exports__ = __webpack_require__(283)
 
 /* template */
-var __vue_template__ = __webpack_require__(274)
+var __vue_template__ = __webpack_require__(284)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -23857,13 +24262,13 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 272 */
+/* 282 */
 /***/ (function(module, exports) {
 
 module.exports = {}
 
 /***/ }),
-/* 273 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23887,7 +24292,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 274 */
+/* 284 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23898,21 +24303,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 275 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(276)
+__vue_styles__.push(__webpack_require__(286)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(277)
+__vue_exports__ = __webpack_require__(287)
 
 /* template */
-var __vue_template__ = __webpack_require__(278)
+var __vue_template__ = __webpack_require__(288)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -23942,13 +24347,13 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 276 */
+/* 286 */
 /***/ (function(module, exports) {
 
 module.exports = {}
 
 /***/ }),
-/* 277 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23972,7 +24377,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 278 */
+/* 288 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23983,21 +24388,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 279 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(280)
+__vue_styles__.push(__webpack_require__(290)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(281)
+__vue_exports__ = __webpack_require__(291)
 
 /* template */
-var __vue_template__ = __webpack_require__(282)
+var __vue_template__ = __webpack_require__(292)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -24027,13 +24432,13 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 280 */
+/* 290 */
 /***/ (function(module, exports) {
 
 module.exports = {}
 
 /***/ }),
-/* 281 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24057,7 +24462,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 282 */
+/* 292 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -24068,7 +24473,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 283 */
+/* 293 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -24089,21 +24494,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 284 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(285)
+__vue_styles__.push(__webpack_require__(295)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(286)
+__vue_exports__ = __webpack_require__(296)
 
 /* template */
-var __vue_template__ = __webpack_require__(287)
+var __vue_template__ = __webpack_require__(297)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -24115,10 +24520,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "D:\\own\\weex-demo\\src\\components\\card\\mapCard.vue"
+__vue_options__.__file = "D:\\own\\weex-demo\\src\\components\\card\\detailCardAcross.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-a34658a0"
+__vue_options__._scopeId = "data-v-1ae36a6c"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -24133,7 +24538,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 285 */
+/* 295 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -24149,21 +24554,15 @@ module.exports = {
   "align-center": {
     "alignItems": "center"
   },
-  "map-card-page": {
-    "height": "200",
-    "backgroundColor": "#f5f5f5",
+  "detail-card-across-page": {
     "flexDirection": "row",
     "justifyContent": "space-between",
-    "alignItems": "center",
-    "paddingTop": "20",
-    "paddingRight": "20",
-    "paddingBottom": "20",
-    "paddingLeft": "20"
+    "marginBottom": "40"
   }
 }
 
 /***/ }),
-/* 286 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24176,144 +24575,11 @@ Object.defineProperty(exports, "__esModule", {
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2020/08/31
- * desc: 带地图的卡片
+ * desc: 详细信息宽卡片
  */
 
 exports.default = {
-  name: 'mapCard',
-  data: function data() {
-    return {};
-  },
-
-  props: {
-    mapInfo: { type: Object, default: function _default() {
-        return {};
-      }
-    }
-  }
-};
-
-/***/ }),
-/* 287 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["map-card-page"]
-  }, [_c('div', [_c('text', {
-    staticClass: ["title"]
-  }, [_vm._v(_vm._s(_vm.mapInfo.title))]), _c('div', {
-    staticClass: ["direction-row", "align-end"]
-  }, [_c('text', {
-    staticClass: ["price"]
-  }, [_vm._v(_vm._s(_vm.mapInfo.price))]), _c('text', {
-    staticClass: ["unit"]
-  }, [_vm._v("元/月起")]), _c('text', {
-    staticClass: ["info"]
-  }, [_vm._v(".在租")]), _c('text', {
-    staticClass: ["rent"]
-  }, [_vm._v(_vm._s(_vm.mapInfo.rent))]), _c('text', {
-    staticClass: ["info"]
-  }, [_vm._v("套")])]), _c('text', {
-    staticClass: ["distance"]
-  }, [_vm._v("距您" + _vm._s(_vm.mapInfo.distance) + "米")])]), _c('image', {
-    staticStyle: {
-      width: "100px",
-      height: "100px"
-    },
-    attrs: {
-      "src": "/assets/images/home/map.png"
-    }
-  })])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-/* 288 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(289)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(290)
-
-/* template */
-var __vue_template__ = __webpack_require__(291)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "D:\\own\\weex-demo\\src\\components\\card\\briefCard.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-574cb464"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 289 */
-/***/ (function(module, exports) {
-
-module.exports = {
-  "direction-row": {
-    "flexDirection": "row"
-  },
-  "justify-between": {
-    "justifyContent": "space-between"
-  },
-  "align-end": {
-    "alignItems": "flex-end"
-  },
-  "align-center": {
-    "alignItems": "center"
-  },
-  "brief-card-page": {
-    "marginRight": "30",
-    "width": "300"
-  }
-}
-
-/***/ }),
-/* 290 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-/* COMPONENT DOCUMENT
- * author: zhaoyagn
- * date: 2020/08/31
- * desc: 简介卡片
- */
-
-exports.default = {
-  name: 'briefCard',
+  name: 'detailCardAcross',
   data: function data() {
     return {};
   },
@@ -24325,116 +24591,55 @@ exports.default = {
       }
     }
   }
-
 };
 
 /***/ }),
-/* 291 */
+/* 297 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["brief-card-page"]
+    staticClass: ["detail-card-across-page"]
   }, [_c('image', {
     staticClass: ["image"],
     attrs: {
       "src": _vm.cardInfo.url
     }
-  }), _c('text', {
+  }), _c('div', [_c('text', {
     staticClass: ["title"]
-  }, [_vm._v(_vm._s(_vm.cardInfo.title))]), _c('text', {
+  }, [_vm._v(_vm._s(_vm.cardInfo.type) + "·" + _vm._s(_vm.cardInfo.title))]), _c('div', {
+    staticClass: ["right-content"]
+  }, [_c('div', {
     staticClass: ["info"]
-  }, [_vm._v(_vm._s(_vm.cardInfo.info))])])
+  }, [_c('div', {
+    staticClass: ["direction-row"]
+  }, [_c('text', [_vm._v(_vm._s(_vm.cardInfo.houseType) + " | ")]), _c('text', [_vm._v(_vm._s(_vm.cardInfo.area) + "m² | ")]), _c('text', [_vm._v(_vm._s(_vm.cardInfo.direction))])]), _c('div', {
+    staticClass: ["direction-row", "align-center"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "24px",
+      height: "24px",
+      marginRight: "4px"
+    },
+    attrs: {
+      "src": "/assets/images/home/position.png"
+    }
+  }), _c('text', [_vm._v("距离" + _vm._s(_vm.cardInfo.station) + _vm._s(_vm.cardInfo.distance) + "m")])])]), _c('div', {
+    staticClass: ["price"]
+  }, [_c('text', {
+    staticClass: ["num"]
+  }, [_vm._v(_vm._s(_vm.cardInfo.price))]), _c('text', {
+    staticClass: ["unit"]
+  }, [_vm._v("元/月")])])]), _c('div', {
+    staticClass: ["tag-group"]
+  }, _vm._l((_vm.cardInfo.tags), function(tag) {
+    return _c('text', {
+      key: tag,
+      staticClass: ["tag"]
+    }, [_vm._v(_vm._s(tag))])
+  }))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
-
-/***/ }),
-/* 292 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var homeMenuList = exports.homeMenuList = [{ title: '整租', url: 'home' }, { title: '合租', url: 'room' }, { title: '公寓', url: 'park' }, { title: '短租', url: 'inn' }];
-
-/***/ }),
-/* 293 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-// 模拟数据
-var homeList = exports.homeList = [{
-  url: '/assets/images/home/room1.jpg',
-  title: '世外桃源额为嗡嗡嗡',
-  district: '浦东新区',
-  town: '北蔡',
-  room: '4室3厅',
-  area: '178',
-  tags: ['立即入住', '整租'],
-  price: 16000
-}, {
-  url: '/assets/images/home/room1.jpg',
-  title: '世外桃源',
-  district: '浦东新区',
-  town: '北蔡',
-  room: '4室3厅',
-  area: '178',
-  tags: ['立即入住', '整租'],
-  price: 16000
-}, {
-  url: '/assets/images/home/room1.jpg',
-  title: '世外桃源',
-  district: '浦东新区',
-  town: '北蔡',
-  room: '4室3厅',
-  area: '178',
-  tags: ['立即入住', '整租'],
-  price: 16000
-}];
-
-var mapInfo = exports.mapInfo = {
-  title: '枫林路167号',
-  price: 5000,
-  rent: 1,
-  distance: 1885
-};
-
-var lifeList = exports.lifeList = [{
-  url: '/assets/images/home/hot1.jpg',
-  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
-  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
-}, {
-  url: '/assets/images/home/hot2.jpg',
-  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
-  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
-}, {
-  url: '/assets/images/home/hot3.jpg',
-  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
-  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
-}];
-
-var newsList = exports.newsList = [{
-  url: '/assets/images/home/news1.jpg',
-  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
-  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
-}, {
-  url: '/assets/images/home/news2.jpg',
-  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
-  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
-}, {
-  url: '/assets/images/home/news3.jpg',
-  title: '前几天，一位大学毕业刚入职的银行员工在酒店参加公司聚餐时，因为不愿喝酒，居然被领导辱骂、打耳光',
-  info: '不止如此，甚至还被其他同事责骂。许多人为新员工打抱不平，谴责这种职场霸凌现象。'
-}];
-var likeList = exports.likeList = [];
 
 /***/ })
 /******/ ]);

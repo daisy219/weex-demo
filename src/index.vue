@@ -47,7 +47,7 @@ export default {
     background-color: @white-color;
     align-items: center;
     justify-content: center;
-    padding-bottom: 120px;
+    padding-bottom: 150px;
   }
 }
 </style>

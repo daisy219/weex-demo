@@ -4,16 +4,18 @@
  * date: 2020/08/24
  * desc: 首页
  */
-import { WxcEpSlider } from 'weex-ui';
+import { WxcEpSlider, WxcButton } from 'weex-ui';
+import { homeMenuList } from '@/const/home.js';
+import { homeList, mapInfo, lifeList, newsList, likeList } from '@/service/home.js';
+
 import DetailCardStand from '@/components/card/detailCardStand';
+import DetailCardAcross from '@/components/card/detailCardAcross';
 import MapCard from '@/components/card/mapCard';
 import BriefCard from '@/components/card/briefCard';
-import { homeMenuList } from '@/const/home.js';
-import { homeList, mapInfo, lifeList, newsList } from '@/service/home.js';
 
 export default {
   name: 'home',
-  components: { WxcEpSlider, DetailCardStand, MapCard, BriefCard },
+  components: { WxcEpSlider, DetailCardStand, MapCard, BriefCard, DetailCardAcross, WxcButton },
   data () {
     return {
       place: '上海',
@@ -31,7 +33,13 @@ export default {
       mapInfo: mapInfo,
       lifeList: lifeList,
       newsList: newsList,
+      likeList: likeList,
     };
+  },
+  methods: {
+    wxcButtonClicked() {
+
+    },
   },
 };
 </script>
@@ -142,8 +150,10 @@ export default {
         </div>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
-      <detail-card-stand />
+      <detail-card-across v-for="(item, index) in likeList" :key="index" :card-info="item"/>
     </div>
+    <wxc-button text="查看更多房源" type="white" @wxcButtonClicked="wxcButtonClicked"></wxc-button>
+
   </div>
 </template>
 <style lang="less" scoped>

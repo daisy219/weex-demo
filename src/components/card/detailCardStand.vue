@@ -37,7 +37,7 @@ export default {
     <text>{{ cardInfo.town }}</text>
   </div>
   <div class="info">
-    <text>{{ cardInfo.room }} | </text>
+    <text>{{ cardInfo.houseType }} | </text>
     <text>{{ cardInfo.area }}m²</text>
   </div>
   <div class="tag-group">

@@ -16,39 +16,29 @@ export default {
   props: {
     cardInfo: { type: Object, default() { return {}; } },
   },
-
-  created() {
-
-  },
-
-  methods: {
-
-  },
-
 };
 </script>
 
 <template>
-<div class="detail-card-across-page direction-row">
+<div class="detail-card-across-page">
   <image class="image" :src="cardInfo.url"/>
   <div>
     <text class="title">{{ cardInfo.type }}·{{ cardInfo.title }}</text>
-    <div class="direction-row justify-between align-center">
+    <div class="right-content">
       <div class="info">
         <div class="direction-row">
           <text>{{ cardInfo.houseType }} | </text>
           <text>{{ cardInfo.area }}m² | </text>
           <text>{{ cardInfo.direction }}</text>
         </div>
-        <div class="direction-row">
-          <image style="width:20px; height:20px" src="/assets/images/home/position.png"/>
-          <text>距离{{ cardInfo.area }}m²</text>
-          <text>{{ cardInfo.direction }}</text>
+        <div class="direction-row align-center">
+          <image style="width:24px; height:24px; margin-right: 4px;" src="/assets/images/home/position.png"/>
+          <text>距离{{ cardInfo.station }}{{ cardInfo.distance }}m</text>
         </div>
       </div>
       <div class="price">
-        <text class="num"></text>
-        <text class="unit"></text>
+        <text class="num">{{ cardInfo.price }}</text>
+        <text class="unit">元/月</text>
       </div>
     </div>
 
@@ -63,22 +53,47 @@ export default {
 @import '~@/assets/style/const.less';
 @import '~@/assets/style/common.less';
 .detail-card-across-page {
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40px;
   .image {
-    margin-right: 20px;
-    width: 250px;
+    width: 200px;
     height: 150px;
     border-radius: 4px;
-  }
-  .info {
-    p {
-      color: @light-font-color;
-    }
   }
   .title {
     lines: 1;
     font-weight: bold;
     font-size: 34px;
-    line-height: 70px;
+    line-height: 40px;
+    margin-bottom: 10px;
+  }
+  .right-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px;
+    .info {
+      p {
+        font-size: 20px;
+        line-height: 30px;
+        color: @light-font-color;
+      }
+    }
+    .price {
+      flex-direction: row;
+      font-size: 24px;
+      align-items: flex-end;
+      .num {
+        color: @red-color;
+        font-weight: bold;
+      }
+      .unit {
+        font-size: 22px;
+        margin-left: 10px;
+        color: @red-color;
+      }
+    }
   }
   .tag-group {
     flex-direction: row;
@@ -88,20 +103,6 @@ export default {
       margin: 10px 10px 10px 0;
       color: #3a7bd5;
       background-color: rgb(198, 226, 255);
-    }
-  }
-  .price {
-    flex-direction: row;
-    font-size: 24px;
-    align-items: flex-end;
-    .num {
-      color: @red-color;
-      font-weight: bold;
-    }
-    .unit {
-      font-size: 22px;
-      margin-left: 10px;
-      color: @red-color;
     }
   }
 }
