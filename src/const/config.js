@@ -1,17 +1,1 @@
-export const tabStyles = {
-  bgColor: '#FFFFFF',
-  titleColor: '#666666',
-  activeTitleColor: '#82529d',
-  activeBgColor: '#FFFFFF',
-  isActiveTitleBold: true,
-  iconWidth: 70,
-  iconHeight: 70,
-  width: 150,
-  height: 120,
-  fontSize: 24,
-  activeBottomColor: '#FFC900',
-  activeBottomWidth: 120,
-  activeBottomHeight: 6,
-  textPaddingLeft: 10,
-  textPaddingRight: 10,
-};
+

@@ -4,38 +4,54 @@
  * date: 2020/08/21
  * desc: 底部导航
  */
-import { WxcTabBar } from 'weex-ui';
-import { tabStyles } from '@/const/config.js';
 import { tabBarArr } from '@/const/common.js';
 
 export default {
   name: 'tab-bar',
-  components: { WxcTabBar },
   data () {
     return {
       tabTitles: tabBarArr,
-      tabStyles: tabStyles,
-      wrapBgColor: '#fff',
-      // contentStyle: null,
+      currentTab: 'home',
     };
   },
   created () {
   },
   methods: {
+    jumpTo(item) {
+      this.currentTab = item.key;
+      this.$router.push({ name: item.url });
+    },
 
   },
 };
 </script>
 <template>
-  <wxc-tab-bar class="tab-bar" ref="wxc-tab-bar" :tab-titles="tabTitles" :wrap-bg-color="wrapBgColor" :tab-styles="tabStyles">
-    <slot />
-    <!-- <div class="item-container" :style="contentStyle"><text>首页</text></div>
-    <div class="item-container" :style="contentStyle"><text>11</text></div>
-    <div class="item-container" :style="contentStyle"><text>22</text></div>
-    <div class="item-container" :style="contentStyle"><text>33</text></div>
-    <div class="item-container" :style="contentStyle"><text>44</text></div> -->
-  </wxc-tab-bar>
+  <div class="tab-bar">
+    <div v-for="item in tabTitles" :key="item.title" class="tab-bar-content" @click="jumpTo(item)">
+      <image style="width:50px; height:50px" :src="currentTab === item.key ? item.activeIcon : item.icon"/>
+      <text :class="['tab-bar-title', {'active': currentTab === item.key}]">{{ item.title }}</text>
+    </div>
+  </div>
 </template>
 <style lang="less" scoped>
-
+@import '~@/assets/style/const.less';
+@import '~@/assets/style/common.less';
+.tab-bar {
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: @common-max-width;
+  background-color: @white-color;
+  .tab-bar-content {
+    padding: 10px 20px;
+    align-items: center;
+    .tab-bar-title {
+      font-size: 30px;
+    }
+    .active {
+      color: @main-color;
+    }
+  }
+}
 </style>

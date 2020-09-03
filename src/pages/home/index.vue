@@ -161,6 +161,7 @@ export default {
 @import '~@/assets/style/common.less';
 
 .home-index-page {
+  align-items: center;
   .common-part {
     width: @common-max-width;
     padding: 0 30px;
