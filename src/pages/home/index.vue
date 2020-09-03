@@ -12,10 +12,11 @@ import DetailCardStand from '@/components/card/detailCardStand';
 import DetailCardAcross from '@/components/card/detailCardAcross';
 import MapCard from '@/components/card/mapCard';
 import BriefCard from '@/components/card/briefCard';
+import SearchInput from '@/components/searchInput';
 
 export default {
   name: 'home',
-  components: { WxcEpSlider, DetailCardStand, MapCard, BriefCard, DetailCardAcross, WxcButton },
+  components: { WxcEpSlider, DetailCardStand, MapCard, BriefCard, DetailCardAcross, WxcButton, SearchInput },
   data () {
     return {
       place: '上海',
@@ -46,13 +47,14 @@ export default {
 <template>
   <div class="home-index-page">
     <div class="top-part clearfix">
-      <div class="search">
+      <search-input :place="'上海'"/>
+      <!-- <div class="search">
         <text class="place">{{ place }}</text>
         <image style="width:30px; height:30px" src="/assets/images/home/bottom-solid-arrow.png"/>
         <div class="line"></div>
         <image style="width:30px; height:30px" src="/assets/images/home/search.png"/>
         <text class="info">您想住哪里？</text>
-      </div>
+      </div> -->
       <div class="message">
         <image style="width:60px; height:60px" resize="stretch" src="/assets/images/home/message.png"/>
       </div>
@@ -194,31 +196,7 @@ export default {
     background: @main-color;
     flex-direction: row;
     align-items: center;
-    .search {
-      margin-right: 30px;
-      background: @white-color;
-      border-radius: 4px;
-      flex-direction: row;
-      flex: 7;
-      align-items:center;
-      .place {
-        padding: 0 20px;
-        justify-content: center;
-        line-height: 70px;
-      }
-      .line {
-        height: 40px;
-        width: 1px;
-        margin: 0 20px;
-        background-color: #000;
-      }
-      .info {
-        color: @light-font-color;
-        line-height: 70px;
-        font-size: 28px;
-        padding-left: 20px;
-      }
-    }
+
   }
   .banner-part {
     width: @common-max-width;

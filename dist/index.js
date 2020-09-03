@@ -5078,11 +5078,20 @@ var _briefCard = __webpack_require__(267);
 
 var _briefCard2 = _interopRequireDefault(_briefCard);
 
+var _searchInput = __webpack_require__(298);
+
+var _searchInput2 = _interopRequireDefault(_searchInput);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* COMPONENT DOCUMENT
+ * author: zhaoyang
+ * date: 2020/08/24
+ * desc: 首页
+ */
 exports.default = {
   name: 'home',
-  components: { WxcEpSlider: _weexUi.WxcEpSlider, DetailCardStand: _detailCardStand2.default, MapCard: _mapCard2.default, BriefCard: _briefCard2.default, DetailCardAcross: _detailCardAcross2.default, WxcButton: _weexUi.WxcButton },
+  components: { WxcEpSlider: _weexUi.WxcEpSlider, DetailCardStand: _detailCardStand2.default, MapCard: _mapCard2.default, BriefCard: _briefCard2.default, DetailCardAcross: _detailCardAcross2.default, WxcButton: _weexUi.WxcButton, SearchInput: _searchInput2.default },
   data: function data() {
     return {
       place: '上海',
@@ -5108,11 +5117,6 @@ exports.default = {
     wxcButtonClicked: function wxcButtonClicked() {}
   }
 };
-/* COMPONENT DOCUMENT
- * author: zhaoyang
- * date: 2020/08/24
- * desc: 首页
- */
 
 /***/ }),
 /* 21 */
@@ -23750,31 +23754,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["home-index-page"]
   }, [_c('div', {
     staticClass: ["top-part", "clearfix"]
-  }, [_c('div', {
-    staticClass: ["search"]
-  }, [_c('text', {
-    staticClass: ["place"]
-  }, [_vm._v(_vm._s(_vm.place))]), _c('image', {
-    staticStyle: {
-      width: "30px",
-      height: "30px"
-    },
+  }, [_c('search-input', {
     attrs: {
-      "src": "/assets/images/home/bottom-solid-arrow.png"
+      "place": '上海'
     }
-  }), _c('div', {
-    staticClass: ["line"]
-  }), _c('image', {
-    staticStyle: {
-      width: "30px",
-      height: "30px"
-    },
-    attrs: {
-      "src": "/assets/images/home/search.png"
-    }
-  }), _c('text', {
-    staticClass: ["info"]
-  }, [_vm._v("您想住哪里？")])]), _vm._m(0)]), _c('div', {
+  }), _vm._m(0)], 1), _c('div', {
     staticClass: ["banner-part"]
   }, [_c('wxc-ep-slider', {
     attrs: {
@@ -24622,6 +24606,147 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["app-index-wrapper"]
   }, [_c('router-view'), _c('tab-bar')], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 298 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(299)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(300)
+
+/* template */
+var __vue_template__ = __webpack_require__(301)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "D:\\own\\weex-demo\\src\\components\\searchInput.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-444b1b7c"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 299 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "direction-row": {
+    "flexDirection": "row"
+  },
+  "justify-between": {
+    "justifyContent": "space-between"
+  },
+  "align-end": {
+    "alignItems": "flex-end"
+  },
+  "align-center": {
+    "alignItems": "center"
+  },
+  "search-input-page": {
+    "marginRight": "30",
+    "background": "#ffffff",
+    "borderRadius": "4",
+    "flexDirection": "row",
+    "flex": 7,
+    "alignItems": "center"
+  }
+}
+
+/***/ }),
+/* 300 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* COMPONENT DOCUMENT
+ * author: zhaoyang
+ * date: 2020/09/03
+ * desc: 搜索框
+ */
+
+exports.default = {
+  name: 'searchInput',
+  data: function data() {
+    return {};
+  },
+
+
+  props: {
+    place: { type: String, default: '' }
+  },
+
+  created: function created() {},
+
+
+  methods: {}
+
+};
+
+/***/ }),
+/* 301 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["search-input-page"]
+  }, [(_vm.place) ? _c('div', {
+    staticClass: ["direction-row", "align-center"]
+  }, [_c('text', {
+    staticClass: ["place"]
+  }, [_vm._v(_vm._s(_vm.place))]), _c('image', {
+    staticStyle: {
+      width: "30px",
+      height: "30px"
+    },
+    attrs: {
+      "src": "/assets/images/home/bottom-solid-arrow.png"
+    }
+  }), _c('div', {
+    staticClass: ["line"]
+  })]) : _vm._e(), _c('image', {
+    staticStyle: {
+      width: "30px",
+      height: "30px"
+    },
+    attrs: {
+      "src": "/assets/images/home/search.png"
+    }
+  }), _c('text', {
+    staticClass: ["info"]
+  }, [_vm._v("您想住哪里？")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
