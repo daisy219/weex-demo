@@ -19,7 +19,7 @@ export default {
   methods: {
     jumpTo(item) {
       this.currentTab = item.key;
-      this.$router.push({ name: item.url });
+      this.$router.push({ name: item.key });
     },
 
   },

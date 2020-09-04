@@ -1,15 +1,14 @@
 export const tabBarArr = [
-  { title: '首页', icon: 'home', url: 'home' },
-  { title: '找房', icon: 'find', url: 'find' },
-  { title: '租房', icon: 'add', url: 'add' },
-  { title: '业主', icon: 'about', url: 'about' },
-  { title: '我的', icon: 'personal', url: 'personal' },
+  { title: '首页', icon: 'home' },
+  { title: '找房', icon: 'find' },
+  { title: '租房', icon: 'add' },
+  { title: '业主', icon: 'about' },
+  { title: '我的', icon: 'personal' },
 ].map(a => {
   return {
     title: a.title,
     key: a.icon,
     icon: `./assets/images/tabBar/${a.icon}.png`,
     activeIcon: `./assets/images/tabBar/${a.icon}Active.png`,
-    url: a.url,
   };
 });

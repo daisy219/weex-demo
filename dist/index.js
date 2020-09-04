@@ -23756,7 +23756,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["top-part", "clearfix"]
   }, [_c('search-input', {
     attrs: {
-      "place": '上海'
+      "place": '上海',
+      "text": '您想住哪里？'
     }
   }), _vm._m(0)], 1), _c('div', {
     staticClass: ["banner-part"]
@@ -24145,7 +24146,14 @@ module.exports = __vue_exports__
 /* 277 */
 /***/ (function(module, exports) {
 
-module.exports = {}
+module.exports = {
+  "add-index-page": {
+    "paddingTop": "20",
+    "paddingRight": "20",
+    "paddingBottom": "20",
+    "paddingLeft": "20"
+  }
+}
 
 /***/ }),
 /* 278 */
@@ -24158,28 +24166,73 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _searchInput = __webpack_require__(298);
+
+var _searchInput2 = _interopRequireDefault(_searchInput);
+
+var _detailCardAcross = __webpack_require__(259);
+
+var _detailCardAcross2 = _interopRequireDefault(_detailCardAcross);
+
+var _home = __webpack_require__(254);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  name: 'add',
+  components: { SearchInput: _searchInput2.default, DetailCardAcross: _detailCardAcross2.default },
+  data: function data() {
+    return {
+      likeList: _home.likeList
+    };
+  }
+};
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2020/08/24
  * desc: 租房
  */
 
-exports.default = {
-  name: 'add',
-  data: function data() {
-    return {};
-  }
-};
-
 /***/ }),
 /* 279 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('text', [_vm._v("租房")])])
-}]}
+  return _c('div', {
+    staticClass: ["add-index-page"]
+  }, [_c('div', {
+    staticClass: ["top-content"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "40px",
+      height: "40px",
+      marginRight: "20px"
+    },
+    attrs: {
+      "src": "/assets/images/add/back.png"
+    }
+  }), _c('search-input', {
+    attrs: {
+      "text": '请输入小区/商圈/地铁站等',
+      "gray": true
+    }
+  }), _c('image', {
+    staticStyle: {
+      width: "54px",
+      height: "46px"
+    },
+    attrs: {
+      "src": "/assets/images/add/map.png"
+    }
+  })], 1), _vm._l((_vm.likeList), function(item, index) {
+    return _c('detail-card-across', {
+      key: index,
+      attrs: {
+        "cardInfo": item
+      }
+    })
+  })], 2)
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ }),
@@ -24534,7 +24587,7 @@ exports.default = {
   methods: {
     jumpTo: function jumpTo(item) {
       this.currentTab = item.key;
-      this.$router.push({ name: item.url });
+      this.$router.push({ name: item.key });
     }
   }
 };
@@ -24555,13 +24608,12 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var tabBarArr = exports.tabBarArr = [{ title: '首页', icon: 'home', url: 'home' }, { title: '找房', icon: 'find', url: 'find' }, { title: '租房', icon: 'add', url: 'add' }, { title: '业主', icon: 'about', url: 'about' }, { title: '我的', icon: 'personal', url: 'personal' }].map(function (a) {
+var tabBarArr = exports.tabBarArr = [{ title: '首页', icon: 'home' }, { title: '找房', icon: 'find' }, { title: '租房', icon: 'add' }, { title: '业主', icon: 'about' }, { title: '我的', icon: 'personal' }].map(function (a) {
   return {
     title: a.title,
     key: a.icon,
     icon: './assets/images/tabBar/' + a.icon + '.png',
-    activeIcon: './assets/images/tabBar/' + a.icon + 'Active.png',
-    url: a.url
+    activeIcon: './assets/images/tabBar/' + a.icon + 'Active.png'
   };
 });
 
@@ -24676,7 +24728,14 @@ module.exports = {
     "borderRadius": "4",
     "flexDirection": "row",
     "flex": 7,
-    "alignItems": "center"
+    "alignItems": "center",
+    "paddingTop": 0,
+    "paddingRight": "20",
+    "paddingBottom": 0,
+    "paddingLeft": "20"
+  },
+  "gray-background": {
+    "background": "#f5f5f5"
   }
 }
 
@@ -24705,7 +24764,9 @@ exports.default = {
 
 
   props: {
-    place: { type: String, default: '' }
+    place: { type: String, default: '' },
+    text: { type: String, default: '' },
+    gray: false
   },
 
   created: function created() {},
@@ -24721,7 +24782,9 @@ exports.default = {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["search-input-page"]
+    class: ['search-input-page', {
+      'gray-background': _vm.gray
+    }]
   }, [(_vm.place) ? _c('div', {
     staticClass: ["direction-row", "align-center"]
   }, [_c('text', {
@@ -24746,7 +24809,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('text', {
     staticClass: ["info"]
-  }, [_vm._v("您想住哪里？")])])
+  }, [_vm._v(_vm._s(_vm.text))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

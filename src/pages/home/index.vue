@@ -47,14 +47,7 @@ export default {
 <template>
   <div class="home-index-page">
     <div class="top-part clearfix">
-      <search-input :place="'上海'"/>
-      <!-- <div class="search">
-        <text class="place">{{ place }}</text>
-        <image style="width:30px; height:30px" src="/assets/images/home/bottom-solid-arrow.png"/>
-        <div class="line"></div>
-        <image style="width:30px; height:30px" src="/assets/images/home/search.png"/>
-        <text class="info">您想住哪里？</text>
-      </div> -->
+      <search-input :place="'上海'" :text="'您想住哪里？'"/>
       <div class="message">
         <image style="width:60px; height:60px" resize="stretch" src="/assets/images/home/message.png"/>
       </div>

@@ -15,6 +15,8 @@ export default {
 
   props: {
     place: {type: String, default: ''},
+    text: {type: String, default: ''},
+    gray: false,
   },
 
   created() {
@@ -29,14 +31,14 @@ export default {
 </script>
 
 <template>
-<div class="search-input-page">
+<div :class="['search-input-page', {'gray-background': gray}]">
   <div v-if="place" class="direction-row align-center">
     <text class="place">{{ place }}</text>
     <image style="width:30px; height:30px" src="/assets/images/home/bottom-solid-arrow.png"/>
     <div class="line"></div>
   </div>
   <image style="width:30px; height:30px" src="/assets/images/home/search.png"/>
-  <text class="info">您想住哪里？</text>
+  <text class="info">{{ text }}</text>
 </div>
 </template>
 
@@ -50,7 +52,7 @@ export default {
   flex-direction: row;
   flex: 7;
   align-items: center;
-  // padding: 0 20px;
+  padding: 0 20px;
   .place {
     padding: 0 20px;
     justify-content: center;
@@ -68,5 +70,8 @@ export default {
     font-size: 28px;
     padding-left: 20px;
   }
+}
+.gray-background {
+  background: @light-background-color;
 }
 </style>
