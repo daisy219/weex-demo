@@ -9,15 +9,20 @@ import DetailCardAcross from '@/components/card/detailCardAcross';
 import FilterTab from './components/filterTab';
 import Position from './components/position';
 import Type from './components/type';
+import Price from './components/price';
 import { likeList } from '@/service/home.js';
+import { typeList, moreList, sortList } from '@/service/add.js';
 import { WxcPopup } from 'weex-ui';
 
 export default {
   name: 'add',
-  components: { SearchInput, DetailCardAcross, FilterTab, WxcPopup, Position, Type },
+  components: { SearchInput, DetailCardAcross, FilterTab, WxcPopup, Position, Type, Price },
   data () {
     return {
       likeList: likeList,
+      typeList: typeList,
+      moreList: moreList,
+      sortList: sortList,
       isBottomShow: false,
       currentTab: {},
       overlayConfig: {
@@ -35,6 +40,9 @@ export default {
     },
 
     confirmFilter(key) {
+      this.isBottomShow = false;
+    },
+    chooseSort(item) {
       this.isBottomShow = false;
     },
   },
@@ -60,13 +68,21 @@ export default {
       :height="currentTab.height">
       <div class="pop-content">
         <position v-if="currentTab.key === 'position'" @confirm="confirmFilter"/>
-        <type v-if="currentTab.key === 'type'" />
+        <type v-if="currentTab.key === 'type'" :key="'type'" :list="typeList" @confirm="confirmFilter" />
+        <price v-if="currentTab.key === 'price'" @confirm="confirmFilter" />
+        <type v-if="currentTab.key === 'more'" :key="'more'" :list="moreList" @confirm="confirmFilter" />
+        <div v-if="currentTab.key === 'sort'" class="sort-part align-center">
+          <div v-for="item in sortList" :key="item" class="align-center" @click="chooseSort(item)">
+            <text class="sort-text">{{ item }}</text>
+          </div>
+        </div>
       </div>
     </wxc-popup>
   </div>
 </template>
 <style lang="less">
 @import '~@/assets/style/const.less';
+@import '~@/assets/style/common.less';
 
 .add-index-page {
   padding: 20px;
@@ -75,10 +91,20 @@ export default {
     justify-content: space-between;
     align-items: center;
   }
+  .wxc-popup {
+    overflow: scroll;
+  }
   .wxc-popup-add {
     .pop-content {
       border-top-width: 1px;
       border-top-color: @border-color;
+    }
+  }
+  .sort-part {
+    .sort-text {
+      font-size: 30px;
+      line-height: 90px;
+      color: @gray-font-color;
     }
   }
 }

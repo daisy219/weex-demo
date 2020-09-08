@@ -11,10 +11,10 @@ export default {
     return {
       filterList: [
         { content: '位置', key: 'position', height: 600 },
-        { content: '方式', key: 'type', height: 400 },
-        { content: '租金', key: 'price', height: 700 },
+        { content: '方式', key: 'type', height: 500 },
+        { content: '租金', key: 'price', height: 750 },
         { content: '更多', key: 'more', height: 800 },
-        { content: '排序', key: 'sort', height: 400 },
+        { content: '排序', key: 'sort', height: 500 },
       ],
       currentTabKey: '',
     };
