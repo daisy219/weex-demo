@@ -35,6 +35,9 @@ export default {
     confirm() {
 
     },
+    choosePrice(item) {
+      this.$emit('confirm', item);
+    },
   },
 
 };
@@ -42,13 +45,13 @@ export default {
 
 <template>
 <div class="add-tab-price-page">
-  <div v-for="item in priceList" :key="item" class="item">
+  <div v-for="item in priceList" :key="item" class="item" @click="choosePrice(item)">
     <text class="text">{{ item }}</text>
   </div>
-  <div class="btn-group">
+  <!-- <div class="btn-group">
     <wxc-button class="btn" text="重置" size="big" :btnStyle="resetBtnStyle" :textStyle="resetBtnTextStyle" @wxcButtonClicked="reset"></wxc-button>
     <wxc-button class="btn" text="确定" size="big" :btnStyle="confirmBtnSyle" @wxcButtonClicked="confirm"></wxc-button>
-  </div>
+  </div> -->
 </div>
 </template>
 

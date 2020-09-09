@@ -98,6 +98,7 @@ export default {
     .pop-content {
       border-top-width: 1px;
       border-top-color: @border-color;
+      padding-bottom: 20px;
     }
   }
   .sort-part {
