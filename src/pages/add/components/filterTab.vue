@@ -39,8 +39,8 @@ export default {
 <div class="filter-tab-page">
   <div v-for="item in filterList" :key="item.content" @click="showPopup(item)" class="tab-item">
     <text :class="['text', {'active': item.key === currentTabKey}]">{{ item.content }}</text>
-    <image v-if="item.key !== currentTabKey" style="width:34px; height:34px; margin-left: 10px;" src="/assets/images/home/bottom-solid-arrow.png"/>
-    <image v-if="item.key === currentTabKey" style="width:34px; height:34px; margin-left: 10px;" src="/assets/images/home/active-arrow.png"/>
+    <image v-if="item.key !== currentTabKey" class="image" src="/assets/images/home/bottom-solid-arrow.png"/>
+    <image v-if="item.key === currentTabKey" class="image" src="/assets/images/home/active-arrow.png"/>
   </div>
 
 </div>
@@ -66,6 +66,11 @@ export default {
     }
     .active {
       color: @main-color;
+    }
+    .image {
+      width:34px;
+      height:34px;
+      margin-left: 10px;
     }
   }
 }

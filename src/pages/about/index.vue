@@ -13,7 +13,7 @@ export default {
     return {
       btnStyle: {
         background: '#82529d',
-      }
+      },
     };
   },
   methods: {
@@ -122,7 +122,6 @@ export default {
       </div>
 
     </div>
-    
 
   </div>
 </template>

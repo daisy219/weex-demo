@@ -24707,20 +24707,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         'active': item.key === _vm.currentTabKey
       }]
     }, [_vm._v(_vm._s(item.content))]), (item.key !== _vm.currentTabKey) ? _c('image', {
-      staticStyle: {
-        width: "34px",
-        height: "34px",
-        marginLeft: "10px"
-      },
+      staticClass: ["image"],
       attrs: {
         "src": "/assets/images/home/bottom-solid-arrow.png"
       }
     }) : _vm._e(), (item.key === _vm.currentTabKey) ? _c('image', {
-      staticStyle: {
-        width: "34px",
-        height: "34px",
-        marginLeft: "10px"
-      },
+      staticClass: ["image"],
       attrs: {
         "src": "/assets/images/home/active-arrow.png"
       }
@@ -25883,7 +25875,30 @@ module.exports = __vue_exports__
 /* 311 */
 /***/ (function(module, exports) {
 
-module.exports = {}
+module.exports = {
+  "direction-row": {
+    "flexDirection": "row"
+  },
+  "justify-between": {
+    "justifyContent": "space-between"
+  },
+  "align-end": {
+    "alignItems": "flex-end"
+  },
+  "align-center": {
+    "alignItems": "center"
+  },
+  "btn-group": {
+    "flexDirection": "row",
+    "paddingTop": "20"
+  },
+  "personal-index-page": {
+    "paddingTop": "20",
+    "paddingRight": "40",
+    "paddingBottom": "20",
+    "paddingLeft": "40"
+  }
+}
 
 /***/ }),
 /* 312 */
@@ -25916,7 +25931,160 @@ exports.default = {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _vm._m(0)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('text', [_vm._v("我的")])])
+  return _c('div', {
+    staticClass: ["personal-index-page"]
+  }, [_c('div', {
+    staticClass: ["top-part"]
+  }, [_c('image', {
+    staticClass: ["top-image"],
+    attrs: {
+      "src": "/assets/images/personal/switch.png"
+    }
+  }), _c('text', {
+    staticClass: ["top-text"]
+  }, [_vm._v("切换为业主")])]), _c('div', {
+    staticClass: ["info-part"]
+  }, [_c('div', {
+    staticClass: ["info"]
+  }, [_c('text', {
+    staticClass: ["phone"]
+  }, [_vm._v("188****9799")]), _c('text', {
+    staticClass: ["edit"]
+  }, [_vm._v("点击编辑个人资料")])]), _c('image', {
+    staticStyle: {
+      width: "130px",
+      height: "130px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/photo.png"
+    }
+  })]), _c('div', {
+    staticClass: ["direction-row"]
+  }, [_c('div', {
+    staticClass: ["one-box"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "80px",
+      height: "80px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/one-personal.png"
+    }
+  }), _c('text', {
+    staticClass: ["one-box-text"]
+  }, [_vm._v("我的认证")])]), _c('div', {
+    staticClass: ["one-box"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "80px",
+      height: "80px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/one-heart.png"
+    }
+  }), _c('text', {
+    staticClass: ["one-box-text"]
+  }, [_vm._v("我的关注")])]), _c('div', {
+    staticClass: ["one-box"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "80px",
+      height: "80px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/one-calendar.png"
+    }
+  }), _c('text', {
+    staticClass: ["one-box-text"]
+  }, [_vm._v("我的约看")])]), _c('div', {
+    staticClass: ["one-box"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "80px",
+      height: "80px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/one-box.png"
+    }
+  }), _c('text', {
+    staticClass: ["one-box-text"]
+  }, [_vm._v("我的红包")])])]), _c('div', {
+    staticClass: ["title"]
+  }, [_vm._v("我的家")]), _c('div', {
+    staticClass: ["direction-row"]
+  }, [_c('div', {
+    staticClass: ["two-box"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "80px",
+      height: "80px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/two-contract.png"
+    }
+  }), _c('text', {
+    staticClass: ["two-box-text"]
+  }, [_vm._v("我的合同")])]), _c('div', {
+    staticClass: ["two-box"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "80px",
+      height: "80px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/two-key.png"
+    }
+  }), _c('text', {
+    staticClass: ["two-box-text"]
+  }, [_vm._v("智能门锁")])]), _c('div', {
+    staticClass: ["two-box"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "80px",
+      height: "80px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/two-call.png"
+    }
+  }), _c('text', {
+    staticClass: ["two-box-text"]
+  }, [_vm._v("在线报修")])]), _c('div', {
+    staticClass: ["two-box"]
+  }, [_c('image', {
+    staticStyle: {
+      width: "80px",
+      height: "80px"
+    },
+    attrs: {
+      "src": "/assets/images/personal/two-order.png"
+    }
+  }), _c('text', {
+    staticClass: ["two-box-text"]
+  }, [_vm._v("我的订单")])])]), _c('div', {
+    staticClass: ["more-line"]
+  }, [_c('text', {
+    staticClass: ["text"]
+  }, [_vm._v("客户服务")]), _c('image', {
+    staticStyle: {
+      width: "30px",
+      height: "30px"
+    },
+    attrs: {
+      "src": "/assets/images/home/right-arrow.png"
+    }
+  })]), _c('div', {
+    staticClass: ["more-line"]
+  }, [_c('text', {
+    staticClass: ["text"]
+  }, [_vm._v("更多")]), _c('image', {
+    staticStyle: {
+      width: "30px",
+      height: "30px"
+    },
+    attrs: {
+      "src": "/assets/images/home/right-arrow.png"
+    }
+  })])])
 }]}
 module.exports.render._withStripped = true
 
