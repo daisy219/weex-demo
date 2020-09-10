@@ -5450,12 +5450,13 @@ var _searchInput = __webpack_require__(18);
 
 var _searchInput2 = _interopRequireDefault(_searchInput);
 
-var _chooseCity = __webpack_require__(323);
-
-var _chooseCity2 = _interopRequireDefault(_chooseCity);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* COMPONENT DOCUMENT
+ * author: zhaoyang
+ * date: 2020/08/24
+ * desc: 首页
+ */
 exports.default = {
   name: 'home',
   components: {
@@ -5466,7 +5467,6 @@ exports.default = {
     DetailCardAcross: _detailCardAcross2.default,
     WxcButton: _weexUi.WxcButton,
     SearchInput: _searchInput2.default,
-    ChooseCity: _chooseCity2.default,
     WxcCity: _weexUi.WxcCity
   },
   data: function data() {
@@ -5500,7 +5500,7 @@ exports.default = {
 
     // 模拟定位
     setTimeout(function () {
-      _this.location = '杭州';
+      _this.location = '上海';
     }, 500);
   },
 
@@ -5521,11 +5521,6 @@ exports.default = {
     onInput: function onInput(e) {}
   }
 };
-/* COMPONENT DOCUMENT
- * author: zhaoyang
- * date: 2020/08/24
- * desc: 首页
- */
 
 /***/ }),
 /* 26 */
@@ -24488,31 +24483,25 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _chooseCity = __webpack_require__(323);
-
-var _chooseCity2 = _interopRequireDefault(_chooseCity);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-  name: 'find',
-  components: { ChooseCity: _chooseCity2.default },
-  data: function data() {
-    return {};
-  }
-};
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2020/08/24
  * desc: 找房
  */
 
+exports.default = {
+  name: 'find',
+  data: function data() {
+    return {};
+  }
+};
+
 /***/ }),
 /* 281 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('choose-city')], 1)
+  return _c('div')
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -26419,143 +26408,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["app-index-wrapper"]
   }, [_c('router-view'), _c('tab-bar')], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-/* 323 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(324)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(325)
-
-/* template */
-var __vue_template__ = __webpack_require__(326)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "D:\\own\\weex-demo\\src\\components\\chooseCity.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-1df75712"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 324 */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: CssSyntaxError: D:\\own\\weex-demo\\src\\components\\chooseCity.vue:70:1: Unknown word\n    at Input.error (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\input.js:119:22)\n    at Parser.unknownWord (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\parser.js:506:26)\n    at Parser.other (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\parser.js:171:18)\n    at Parser.parse (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\parser.js:84:26)\n    at parse (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\parse.js:24:16)\n    at new LazyResult (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\lazy-result.js:70:24)\n    at Processor.process (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\processor.js:117:12)\n    at Object.module.exports (D:\\own\\weex-demo\\node_modules\\_weex-vue-loader@0.7.0@weex-vue-loader\\lib\\style-rewriter.js:96:6)");
-
-/***/ }),
-/* 325 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _weexUi = __webpack_require__(3);
-
-exports.default = {
-  name: 'chooseCity',
-  components: { WxcCity: _weexUi.WxcCity },
-  data: function data() {
-    return {
-      animationType: 'push',
-      currentCity: '',
-      cityStyleType: 'list',
-      location: '定位中'
-    };
-  },
-
-
-  props: {
-    // msg: {type: String, default: ''}
-  },
-
-  created: function created() {},
-  mounted: function mounted() {
-    var _this = this;
-
-    // 模拟定位
-    setTimeout(function () {
-      _this.location = '杭州';
-    }, 500);
-  },
-
-
-  methods: {
-    showListCity: function showListCity() {
-      this.cityStyleType = 'list';
-      this.$refs['wxcCity'].show();
-    },
-    showGroupCity: function showGroupCity() {
-      this.cityStyleType = 'group';
-      this.$refs['wxcCity'].show();
-    },
-    citySelect: function citySelect(e) {
-      this.currentCity = e.item;
-    },
-    onInput: function onInput(e) {}
-  }
-
-};
-/* COMPONENT DOCUMENT
- * author: zhooyang
- * date: 2020/09/10
- * desc: 城市选择组件
- */
-
-/***/ }),
-/* 326 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["choose-city-page"]
-  }, [_c('scroller', {
-    staticClass: ["scroller"]
-  }, [_c('div', {
-    staticClass: ["btn"],
-    on: {
-      "click": _vm.showListCity
-    }
-  }, [_c('text', {
-    staticClass: ["btn-txt"]
-  }, [_vm._v("城市选择")])]), _c('div', {
-    staticClass: ["panel"]
-  }, [(_vm.currentCity) ? _c('text', {
-    staticClass: ["text"]
-  }, [_vm._v("当前城市: " + _vm._s(_vm.currentCity))]) : _vm._e()])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

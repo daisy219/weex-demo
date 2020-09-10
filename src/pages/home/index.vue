@@ -13,7 +13,6 @@ import DetailCardAcross from '@/components/card/detailCardAcross';
 import MapCard from '@/components/card/mapCard';
 import BriefCard from '@/components/card/briefCard';
 import SearchInput from '@/components/searchInput';
-import ChooseCity from '@/components/chooseCity';
 
 export default {
   name: 'home',
@@ -25,7 +24,6 @@ export default {
     DetailCardAcross,
     WxcButton,
     SearchInput,
-    ChooseCity,
     WxcCity,
   },
   data () {
@@ -50,15 +48,15 @@ export default {
       // 城市选择组件参数
       animationType: 'push',
       currentCity: '上海',
-      cityStyleType:'list',
+      cityStyleType: 'list',
       location: '定位中',
     };
   },
   mounted() {
     // 模拟定位
     setTimeout(() => {
-      this.location = '杭州';
-    }, 500)
+      this.location = '上海';
+    }, 500);
   },
   methods: {
     wxcButtonClicked() {
@@ -66,7 +64,7 @@ export default {
     },
 
     chooseCity() {
-      this.cityStyleType = 'list'
+      this.cityStyleType = 'list';
       this.$refs['wxcCity'].show();
     },
     // showGroupCity() {
