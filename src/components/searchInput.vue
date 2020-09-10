@@ -24,7 +24,9 @@ export default {
   },
 
   methods: {
-
+    chooseCity() {
+      this.$emit('chooseCity', this.place);
+    },
   },
 
 };
@@ -32,7 +34,7 @@ export default {
 
 <template>
 <div :class="['search-input-page', {'gray-background': gray}]">
-  <div v-if="place" class="direction-row align-center">
+  <div v-if="place" class="direction-row align-center" @click="chooseCity">
     <text class="place">{{ place }}</text>
     <image style="width:30px; height:30px" src="/assets/images/home/bottom-solid-arrow.png"/>
     <div class="line"></div>

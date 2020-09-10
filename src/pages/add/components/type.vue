@@ -61,8 +61,9 @@ export default {
 
 <template>
 <div class="add-tab-type-page">
-
-  <multiple-part v-for="item in list" :key="item.key" :title="item.title" :reset-flag="resetFlag" :list="item.list" @changeValue="wholeTypeChange"/>
+  <scroller>
+    <multiple-part v-for="item in list" :key="item.key" :title="item.title" :reset-flag="resetFlag" :list="item.list" @changeValue="wholeTypeChange"/>
+  </scroller>
   <!-- <multiple-part title="合租" :reset-flag="resetFlag" :list="joinTypeList" :key="'合租'" @changeValue="joinTypeChange"/> -->
   <div class="btn-group">
     <wxc-button class="btn" text="重置" size="big" :btnStyle="resetBtnStyle" :textStyle="resetBtnTextStyle" @wxcButtonClicked="reset"></wxc-button>

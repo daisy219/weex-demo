@@ -5450,16 +5450,25 @@ var _searchInput = __webpack_require__(18);
 
 var _searchInput2 = _interopRequireDefault(_searchInput);
 
+var _chooseCity = __webpack_require__(323);
+
+var _chooseCity2 = _interopRequireDefault(_chooseCity);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* COMPONENT DOCUMENT
- * author: zhaoyang
- * date: 2020/08/24
- * desc: 首页
- */
 exports.default = {
   name: 'home',
-  components: { WxcEpSlider: _weexUi.WxcEpSlider, DetailCardStand: _detailCardStand2.default, MapCard: _mapCard2.default, BriefCard: _briefCard2.default, DetailCardAcross: _detailCardAcross2.default, WxcButton: _weexUi.WxcButton, SearchInput: _searchInput2.default },
+  components: {
+    WxcEpSlider: _weexUi.WxcEpSlider,
+    DetailCardStand: _detailCardStand2.default,
+    MapCard: _mapCard2.default,
+    BriefCard: _briefCard2.default,
+    DetailCardAcross: _detailCardAcross2.default,
+    WxcButton: _weexUi.WxcButton,
+    SearchInput: _searchInput2.default,
+    ChooseCity: _chooseCity2.default,
+    WxcCity: _weexUi.WxcCity
+  },
   data: function data() {
     return {
       place: '上海',
@@ -5477,14 +5486,46 @@ exports.default = {
       mapInfo: _home2.mapInfo,
       lifeList: _home2.lifeList,
       newsList: _home2.newsList,
-      likeList: _home2.likeList
+      likeList: _home2.likeList,
+      chooseCityShow: false,
+      // 城市选择组件参数
+      animationType: 'push',
+      currentCity: '上海',
+      cityStyleType: 'list',
+      location: '定位中'
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    // 模拟定位
+    setTimeout(function () {
+      _this.location = '杭州';
+    }, 500);
   },
 
   methods: {
-    wxcButtonClicked: function wxcButtonClicked() {}
+    wxcButtonClicked: function wxcButtonClicked() {},
+    chooseCity: function chooseCity() {
+      this.cityStyleType = 'list';
+      this.$refs['wxcCity'].show();
+    },
+
+    // showGroupCity() {
+    //   this.cityStyleType = 'group'
+    //   this.$refs['wxcCity'].show();
+    // },
+    citySelect: function citySelect(e) {
+      this.currentCity = e.item.name;
+    },
+    onInput: function onInput(e) {}
   }
 };
+/* COMPONENT DOCUMENT
+ * author: zhaoyang
+ * date: 2020/08/24
+ * desc: 首页
+ */
 
 /***/ }),
 /* 26 */
@@ -24047,7 +24088,11 @@ exports.default = {
   created: function created() {},
 
 
-  methods: {}
+  methods: {
+    chooseCity: function chooseCity() {
+      this.$emit('chooseCity', this.place);
+    }
+  }
 
 };
 
@@ -24061,7 +24106,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       'gray-background': _vm.gray
     }]
   }, [(_vm.place) ? _c('div', {
-    staticClass: ["direction-row", "align-center"]
+    staticClass: ["direction-row", "align-center"],
+    on: {
+      "click": _vm.chooseCity
+    }
   }, [_c('text', {
     staticClass: ["place"]
   }, [_vm._v(_vm._s(_vm.place))]), _c('image', {
@@ -24099,8 +24147,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["top-part", "clearfix"]
   }, [_c('search-input', {
     attrs: {
-      "place": '上海',
+      "place": _vm.currentCity,
       "text": '您想住哪里？'
+    },
+    on: {
+      "chooseCity": _vm.chooseCity
     }
   }), _vm._m(0)], 1), _c('div', {
     staticClass: ["banner-part"]
@@ -24158,8 +24209,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })], 1), _c('div', {
     staticClass: ["common-part"]
-  }, [_vm._m(3), _c('div', {
-    staticClass: ["direction-row"]
+  }, [_vm._m(3), _c('scroller', {
+    staticClass: ["direction-row"],
+    attrs: {
+      "scrollDirection": "horizontal"
+    }
   }, _vm._l((_vm.homeList), function(item, index) {
     return _c('detail-card-stand', {
       key: index,
@@ -24169,8 +24223,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   }))]), _c('div', {
     staticClass: ["common-part"]
-  }, [_vm._m(4), _c('div', {
-    staticClass: ["direction-row"]
+  }, [_vm._m(4), _c('scroller', {
+    staticClass: ["direction-row"],
+    attrs: {
+      "scrollDirection": "horizontal"
+    }
   }, _vm._l((_vm.lifeList), function(item, index) {
     return _c('brief-card', {
       key: index,
@@ -24180,8 +24237,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   }))]), _c('div', {
     staticClass: ["common-part"]
-  }, [_vm._m(5), _c('div', {
-    staticClass: ["direction-row"]
+  }, [_vm._m(5), _c('scroller', {
+    staticClass: ["direction-row"],
+    attrs: {
+      "scrollDirection": "horizontal"
+    }
   }, _vm._l((_vm.newsList), function(item, index) {
     return _c('brief-card', {
       key: index,
@@ -24205,6 +24265,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "wxcButtonClicked": _vm.wxcButtonClicked
+    }
+  }), _c('wxc-city', {
+    ref: "wxcCity",
+    attrs: {
+      "animationType": _vm.animationType,
+      "currentLocation": _vm.location,
+      "cityStyleType": _vm.cityStyleType
+    },
+    on: {
+      "wxcCityItemSelected": _vm.citySelect,
+      "wxcCityOnInput": _vm.onInput
     }
   })], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -24417,28 +24488,32 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _chooseCity = __webpack_require__(323);
+
+var _chooseCity2 = _interopRequireDefault(_chooseCity);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  name: 'find',
+  components: { ChooseCity: _chooseCity2.default },
+  data: function data() {
+    return {};
+  }
+};
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2020/08/24
  * desc: 找房
  */
 
-exports.default = {
-  name: 'find',
-  data: function data() {
-    return {};
-  }
-};
-
 /***/ }),
 /* 281 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('text', [_vm._v("找房")])])
-}]}
+  return _c('div', [_c('choose-city')], 1)
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ }),
@@ -25202,7 +25277,7 @@ module.exports.render._withStripped = true
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["add-tab-type-page"]
-  }, [_vm._l((_vm.list), function(item) {
+  }, [_c('scroller', _vm._l((_vm.list), function(item) {
     return _c('multiple-part', {
       key: item.key,
       attrs: {
@@ -25214,7 +25289,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "changeValue": _vm.wholeTypeChange
       }
     })
-  }), _c('div', {
+  })), _c('div', {
     staticClass: ["btn-group"]
   }, [_c('wxc-button', {
     staticClass: ["btn"],
@@ -25237,7 +25312,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "wxcButtonClicked": _vm.confirm
     }
-  })], 1)], 2)
+  })], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -26344,6 +26419,143 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["app-index-wrapper"]
   }, [_c('router-view'), _c('tab-bar')], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 323 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(324)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(325)
+
+/* template */
+var __vue_template__ = __webpack_require__(326)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "D:\\own\\weex-demo\\src\\components\\chooseCity.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-1df75712"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 324 */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: CssSyntaxError: D:\\own\\weex-demo\\src\\components\\chooseCity.vue:70:1: Unknown word\n    at Input.error (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\input.js:119:22)\n    at Parser.unknownWord (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\parser.js:506:26)\n    at Parser.other (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\parser.js:171:18)\n    at Parser.parse (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\parser.js:84:26)\n    at parse (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\parse.js:24:16)\n    at new LazyResult (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\lazy-result.js:70:24)\n    at Processor.process (D:\\own\\weex-demo\\node_modules\\_postcss@6.0.23@postcss\\lib\\processor.js:117:12)\n    at Object.module.exports (D:\\own\\weex-demo\\node_modules\\_weex-vue-loader@0.7.0@weex-vue-loader\\lib\\style-rewriter.js:96:6)");
+
+/***/ }),
+/* 325 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _weexUi = __webpack_require__(3);
+
+exports.default = {
+  name: 'chooseCity',
+  components: { WxcCity: _weexUi.WxcCity },
+  data: function data() {
+    return {
+      animationType: 'push',
+      currentCity: '',
+      cityStyleType: 'list',
+      location: '定位中'
+    };
+  },
+
+
+  props: {
+    // msg: {type: String, default: ''}
+  },
+
+  created: function created() {},
+  mounted: function mounted() {
+    var _this = this;
+
+    // 模拟定位
+    setTimeout(function () {
+      _this.location = '杭州';
+    }, 500);
+  },
+
+
+  methods: {
+    showListCity: function showListCity() {
+      this.cityStyleType = 'list';
+      this.$refs['wxcCity'].show();
+    },
+    showGroupCity: function showGroupCity() {
+      this.cityStyleType = 'group';
+      this.$refs['wxcCity'].show();
+    },
+    citySelect: function citySelect(e) {
+      this.currentCity = e.item;
+    },
+    onInput: function onInput(e) {}
+  }
+
+};
+/* COMPONENT DOCUMENT
+ * author: zhooyang
+ * date: 2020/09/10
+ * desc: 城市选择组件
+ */
+
+/***/ }),
+/* 326 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["choose-city-page"]
+  }, [_c('scroller', {
+    staticClass: ["scroller"]
+  }, [_c('div', {
+    staticClass: ["btn"],
+    on: {
+      "click": _vm.showListCity
+    }
+  }, [_c('text', {
+    staticClass: ["btn-txt"]
+  }, [_vm._v("城市选择")])]), _c('div', {
+    staticClass: ["panel"]
+  }, [(_vm.currentCity) ? _c('text', {
+    staticClass: ["text"]
+  }, [_vm._v("当前城市: " + _vm._s(_vm.currentCity))]) : _vm._e()])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

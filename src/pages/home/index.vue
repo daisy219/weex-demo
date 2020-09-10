@@ -4,7 +4,7 @@
  * date: 2020/08/24
  * desc: 首页
  */
-import { WxcEpSlider, WxcButton } from 'weex-ui';
+import { WxcEpSlider, WxcButton, WxcCity } from 'weex-ui';
 import { homeMenuList } from '@/const/home.js';
 import { homeList, mapInfo, lifeList, newsList, likeList } from '@/service/home.js';
 
@@ -13,10 +13,21 @@ import DetailCardAcross from '@/components/card/detailCardAcross';
 import MapCard from '@/components/card/mapCard';
 import BriefCard from '@/components/card/briefCard';
 import SearchInput from '@/components/searchInput';
+import ChooseCity from '@/components/chooseCity';
 
 export default {
   name: 'home',
-  components: { WxcEpSlider, DetailCardStand, MapCard, BriefCard, DetailCardAcross, WxcButton, SearchInput },
+  components: {
+    WxcEpSlider,
+    DetailCardStand,
+    MapCard,
+    BriefCard,
+    DetailCardAcross,
+    WxcButton,
+    SearchInput,
+    ChooseCity,
+    WxcCity,
+  },
   data () {
     return {
       place: '上海',
@@ -35,11 +46,37 @@ export default {
       lifeList: lifeList,
       newsList: newsList,
       likeList: likeList,
+      chooseCityShow: false,
+      // 城市选择组件参数
+      animationType: 'push',
+      currentCity: '上海',
+      cityStyleType:'list',
+      location: '定位中',
     };
+  },
+  mounted() {
+    // 模拟定位
+    setTimeout(() => {
+      this.location = '杭州';
+    }, 500)
   },
   methods: {
     wxcButtonClicked() {
 
+    },
+
+    chooseCity() {
+      this.cityStyleType = 'list'
+      this.$refs['wxcCity'].show();
+    },
+    // showGroupCity() {
+    //   this.cityStyleType = 'group'
+    //   this.$refs['wxcCity'].show();
+    // },
+    citySelect(e) {
+      this.currentCity = e.item.name;
+    },
+    onInput(e) {
     },
   },
 };
@@ -47,7 +84,7 @@ export default {
 <template>
   <div class="home-index-page">
     <div class="top-part clearfix">
-      <search-input :place="'上海'" :text="'您想住哪里？'"/>
+      <search-input :place="currentCity" :text="'您想住哪里？'" @chooseCity="chooseCity"/>
       <div class="message">
         <image style="width:60px; height:60px" resize="stretch" src="/assets/images/home/message.png"/>
       </div>
@@ -107,9 +144,9 @@ export default {
         <text class="title">相遇HOME-整租</text>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
-      <div class="direction-row">
+      <scroller class="direction-row" scroll-direction="horizontal">
         <detail-card-stand v-for="(item, index) in homeList" :key="index" :card-info="item"/>
-      </div>
+      </scroller>
     </div>
 
     <div class="common-part">
@@ -120,9 +157,9 @@ export default {
         </div>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
-      <div class="direction-row">
+      <scroller class="direction-row" scroll-direction="horizontal">
         <brief-card v-for="(item, index) in lifeList" :key="index" :card-info="item"/>
-      </div>
+      </scroller>
     </div>
 
     <div class="common-part">
@@ -133,9 +170,9 @@ export default {
         </div>
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
-      <div class="direction-row">
+      <scroller class="direction-row" scroll-direction="horizontal">
         <brief-card v-for="(item, index) in newsList" :key="index" :card-info="item"/>
-      </div>
+      </scroller>
     </div>
 
     <div class="common-part">
@@ -149,6 +186,13 @@ export default {
     </div>
     <wxc-button text="查看更多房源" type="white" @wxcButtonClicked="wxcButtonClicked"></wxc-button>
 
+    <!-- 选择城市 -->
+    <wxc-city ref="wxcCity"
+      :animationType="animationType"
+      :currentLocation="location"
+      :cityStyleType="cityStyleType"
+      @wxcCityItemSelected="citySelect"
+      @wxcCityOnInput="onInput" />
   </div>
 </template>
 <style lang="less" scoped>
