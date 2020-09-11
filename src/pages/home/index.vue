@@ -13,6 +13,7 @@ import DetailCardAcross from '@/components/card/detailCardAcross';
 import MapCard from '@/components/card/mapCard';
 import BriefCard from '@/components/card/briefCard';
 import SearchInput from '@/components/searchInput';
+import SearchPage from '@/components/realSearchInput';
 
 export default {
   name: 'home',
@@ -25,6 +26,7 @@ export default {
     WxcButton,
     SearchInput,
     WxcCity,
+    SearchPage,
   },
   data () {
     return {
@@ -76,13 +78,16 @@ export default {
     },
     onInput(e) {
     },
+    inputClick() {
+      this.$refs['real-search-page'].show();
+    },
   },
 };
 </script>
 <template>
   <div class="home-index-page">
     <div class="top-part clearfix">
-      <search-input :place="currentCity" :text="'您想住哪里？'" @chooseCity="chooseCity"/>
+      <search-input :place="currentCity" :text="'您想住哪里？'" @chooseCity="chooseCity" @inputClick="inputClick"/>
       <div class="message">
         <image style="width:60px; height:60px" resize="stretch" src="/assets/images/home/message.png"/>
       </div>
@@ -184,13 +189,16 @@ export default {
     </div>
     <wxc-button text="查看更多房源" type="white" @wxcButtonClicked="wxcButtonClicked"></wxc-button>
 
-    <!-- 选择城市 -->
+    <!-- 选择城市页 -->
     <wxc-city ref="wxcCity"
       :animationType="animationType"
       :currentLocation="location"
       :cityStyleType="cityStyleType"
       @wxcCityItemSelected="citySelect"
       @wxcCityOnInput="onInput" />
+
+    <!-- 搜索页 -->
+    <search-page ref="real-search-page"/>
   </div>
 </template>
 <style lang="less" scoped>

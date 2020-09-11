@@ -160,3 +160,5 @@ export const likeList = [
     price: 16000,
   },
 ];
+
+export const historyList = ['徐汇', '嘉定', '宝山'];

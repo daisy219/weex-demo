@@ -2,7 +2,7 @@
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2020/09/03
- * desc: 搜索框
+ * desc: 假的搜索框
  */
 
 export default {
@@ -27,6 +27,10 @@ export default {
     chooseCity() {
       this.$emit('chooseCity', this.place);
     },
+
+    inputClick() {
+      this.$emit('inputClick');
+    },
   },
 
 };
@@ -40,7 +44,7 @@ export default {
     <div class="line"></div>
   </div>
   <image style="width:30px; height:30px" src="/assets/images/home/search.png"/>
-  <text class="info">{{ text }}</text>
+  <text class="info" @click="inputClick">{{ text }}</text>
 </div>
 </template>
 
