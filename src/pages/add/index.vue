@@ -14,6 +14,8 @@ import { likeList } from '@/service/home.js';
 import { typeList, moreList, sortList } from '@/service/add.js';
 import { WxcPopup } from 'weex-ui';
 
+const modal = weex.requireModule('modal');
+
 export default {
   name: 'add',
   components: { SearchInput, DetailCardAcross, FilterTab, WxcPopup, Position, Type, Price },
@@ -24,6 +26,7 @@ export default {
       moreList: moreList,
       sortList: sortList,
       isBottomShow: false,
+      refreshing: false,
       currentTab: {},
       overlayConfig: {
         top: 210,
@@ -45,6 +48,20 @@ export default {
     chooseSort(item) {
       this.isBottomShow = false;
     },
+    /** 下拉刷新 */
+    onrefresh (event) {
+      modal.toast({ message: '已刷新', duration: 1 });
+      this.refreshing = true;
+      setTimeout(() => {
+        this.refreshing = false;
+      }, 2000);
+    },
+    onpullingdown (event) {
+      console.log('dy: ' + event.dy);
+      console.log('pullingDistance: ' + event.pullingDistance);
+      console.log('viewHeight: ' + event.viewHeight);
+      console.log('type: ' + event.type);
+    },
   },
 };
 </script>
@@ -56,7 +73,13 @@ export default {
       <image style="width:54px; height:46px" src="/assets/images/add/map.png"/>
     </div>
     <filter-tab @showPopup="showPopup"/>
-    <detail-card-across v-for="(item, index) in likeList" :key="index" :card-info="item"/>
+    <scroller>
+      <refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+        <text class="indicator-text">Refreshing ...</text>
+        <loading-indicator class="indicator"></loading-indicator>
+      </refresh>
+      <detail-card-across v-for="(item, index) in likeList" :key="index" :card-info="item"/>
+    </scroller>
 
     <!-- 弹出层 -->
     <wxc-popup class="wxc-popup-add"

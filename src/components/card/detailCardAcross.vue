@@ -64,7 +64,7 @@ export default {
   .title {
     lines: 1;
     font-weight: bold;
-    font-size: 34px;
+    font-size: 32px;
     line-height: 40px;
     margin-bottom: 10px;
   }

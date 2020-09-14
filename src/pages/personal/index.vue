@@ -146,7 +146,7 @@ export default {
     margin: 0 10px;
     margin-bottom: 30px;
     background: @light-background-color;
-    padding: 10px 25px;
+    padding: 10px 0;
     border-radius: 4px;
     .two-box-text {
       font-size: 24px;

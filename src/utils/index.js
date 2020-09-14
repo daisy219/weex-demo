@@ -22,6 +22,14 @@ export default {
       };
       return {};
     },
+    /** 页面高度
+     * @param {number} height 需要减去的高度
+     */
+    pageHeight(height = 0) {
+      return {
+        height: (weex.config.env.deviceHeight / weex.config.env.deviceWidth) * 750 - height + 'px',
+      };
+    },
   },
   animation: {
     /**
