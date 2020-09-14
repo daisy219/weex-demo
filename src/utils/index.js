@@ -25,7 +25,7 @@ export default {
   },
   animation: {
     /**
-     * 返回定义页面转场动画起初的位置
+     * 执行动画
      * @param ref
      * @param transform 运动类型
      * @param status

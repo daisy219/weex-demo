@@ -32,8 +32,8 @@ export default {
     return {
       place: '上海',
       sliderId: 1,
-      cardLength: 2,
-      bannerList: [1, 2],
+      cardLength: 3,
+      bannerList: [1, 2, 3],
       menuList: homeMenuList,
       cardSize: {
         width: 400,

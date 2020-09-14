@@ -9,7 +9,11 @@ export default {
   name: 'personal',
   data () {
     return {
-
+      imageList: [
+        {src: '/assets/images/home/hot2.jpg'},
+        {src: '/assets/images/home/hot3.jpg'},
+        {src: '/assets/images/home/hot1.jpg'},
+      ],
     };
   },
 };
@@ -46,6 +50,13 @@ export default {
         <text class="one-box-text">我的红包</text>
       </div>
     </div>
+    <!-- 轮播图 -->
+     <slider class="slider" interval="3000" auto-play="true">
+      <div class="frame" v-for="img in imageList" :key="img.src">
+        <image style="width: 710px; height: 400px;" resize="cover" :src="img.src"></image>
+      </div>
+    </slider>
+
     <div class="title">我的家</div>
     <div class="direction-row">
       <div class="two-box">
@@ -152,6 +163,14 @@ export default {
     .text {
       font-size: 30px;
       color: @gray-font-color;
+    }
+  }
+  .slider {
+    height: 400px;
+    .frame {
+      width: 680px;
+      height: 400px;
+      position: relative;
     }
   }
 }
