@@ -2,3 +2,4 @@
 /dist/
 /*.js
 /test/unit/coverage/
+/src/components/slideBar.vue

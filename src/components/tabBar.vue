@@ -43,6 +43,7 @@ export default {
   bottom: 0;
   width: @common-max-width;
   background-color: @white-color;
+  z-index: 99;
   .tab-bar-content {
     padding: 10px 20px;
     align-items: center;

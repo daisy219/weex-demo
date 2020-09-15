@@ -14,9 +14,9 @@ export default {
   },
 
   props: {
-    title: {type: String, default: ''},
-    resetFlag: {type: Boolean, default: true},
-    list: {type: Array, default() { return []; }},
+    title: { type: String, default: '' },
+    resetFlag: { type: Boolean, default: true },
+    list: { type: Array, default() { return []; } },
   },
 
   created() {

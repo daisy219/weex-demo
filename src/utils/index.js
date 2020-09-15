@@ -1,4 +1,77 @@
-export default {
+const Utils = {
+  env: {
+    isTaobao() {
+      const { appName } = weex.config.env;
+      return /(tb|taobao|淘宝)/i.test(appName);
+    },
+    isTrip() {
+      const { appName } = weex.config.env;
+      return appName === 'LX';
+    },
+    isBoat() {
+      const { appName } = weex.config.env;
+      return appName === 'Boat' || appName === 'BoatPlayground';
+    },
+    isWeb() {
+      const { platform } = weex.config.env;
+      return typeof window === 'object' && platform.toLowerCase() === 'web';
+    },
+    isIOS() {
+      const { platform } = weex.config.env;
+      return platform.toLowerCase() === 'ios';
+    },
+    /**
+     * 是否为 iPhone X or iPhoneXS or iPhoneXR or iPhoneXS Max
+     * @returns {boolean}
+     */
+    isIPhoneX() {
+      const { deviceHeight } = weex.config.env;
+      if (Utils.env.isWeb()) {
+        return (
+        /* eslint-disable */
+          typeof window !== undefined &&
+        /* eslint-enable */
+          window.screen &&
+          window.screen.width &&
+          window.screen.height &&
+          ((parseInt(window.screen.width, 10) === 375 && parseInt(window.screen.height, 10) === 812) ||
+            (parseInt(window.screen.width, 10) === 414 && parseInt(window.screen.height, 10) === 896))
+        );
+      }
+      return (
+        Utils.env.isIOS() &&
+        (deviceHeight === 2436 || deviceHeight === 2688 || deviceHeight === 1792 || deviceHeight === 1624)
+      );
+    },
+    isAndroid() {
+      const { platform } = weex.config.env;
+      return platform.toLowerCase() === 'android';
+    },
+    isTmall() {
+      const { appName } = weex.config.env;
+      return /(tm|tmall|天猫)/i.test(appName);
+    },
+    isAliWeex() {
+      return Utils.env.isTmall() || Utils.env.isTrip() || Utils.env.isTaobao();
+    },
+    /**
+     * 获取weex屏幕真实的设置高度，需要减去导航栏高度
+     * @returns {Number}
+     */
+    getPageHeight() {
+      const { env } = weex.config;
+      const navHeight = Utils.env.isWeb() ? 0 : Utils.env.isIPhoneX() ? 176 : 132;
+      return (env.deviceHeight / env.deviceWidth) * 750 - navHeight;
+    },
+    /**
+     * 获取weex屏幕真实的设置高度
+     * @returns {Number}
+     */
+    getScreenHeight() {
+      const { env } = weex.config;
+      return (env.deviceHeight / env.deviceWidth) * 750;
+    },
+  },
   uiStyle: {
     /**
      * 返回定义页面转场动画起初的位置
@@ -58,3 +131,4 @@ export default {
     },
   },
 };
+export default Utils;

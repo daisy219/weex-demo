@@ -75,6 +75,7 @@ export default {
   position: fixed;
   width: 750px;
   background-color: @white-color;
+  z-index: 10;
   .wxc-searchbar {
     margin-bottom: 30px;
   }

@@ -14,9 +14,11 @@ export default {
   },
 
   props: {
-    place: {type: String, default: ''},
-    text: {type: String, default: ''},
-    gray: false,
+    place: { type: String, default: '' },
+    text: { type: String, default: '' },
+    gray: { type: Boolean, default: false },
+    filterShow: { type: Boolean, default: false },
+    showBottomArrow: { type: Boolean, default: true },
   },
 
   created() {
@@ -38,13 +40,18 @@ export default {
 
 <template>
 <div :class="['search-input-page', {'gray-background': gray}]">
-  <div v-if="place" class="direction-row align-center" @click="chooseCity">
+  <div v-if="place" class="direction-row align-center" style="flex: 1" @click="chooseCity">
     <text class="place">{{ place }}</text>
-    <image style="width:30px; height:30px" src="/assets/images/home/bottom-solid-arrow.png"/>
+    <image style="width:30px; height:30px" v-if="showBottomArrow" src="/assets/images/home/bottom-solid-arrow.png"/>
     <div class="line"></div>
   </div>
-  <image style="width:30px; height:30px" src="/assets/images/home/search.png"/>
-  <text class="info" @click="inputClick">{{ text }}</text>
+  <div class="direction-row align-center justify-between" style="flex: 3">
+    <div class="direction-row align-center">
+      <image style="width:30px; height:30px" src="/assets/images/home/search.png"/>
+      <text class="info" @click="inputClick">{{ text }}</text>
+    </div>
+    <text v-if="filterShow" class="filter-text" @click="$emit('click-filter')">筛选</text>
+  </div>
 </div>
 </template>
 
@@ -60,21 +67,25 @@ export default {
   align-items: center;
   padding: 0 20px;
   .place {
-    padding: 0 20px;
     justify-content: center;
     line-height: 70px;
+    font-size: 30px;
   }
   .line {
     height: 40px;
     width: 1px;
-    margin: 0 20px;
-    background-color: #000;
+    background-color: @border-color;
+    margin-left: 20px;
   }
   .info {
     color: @light-font-color;
     line-height: 70px;
     font-size: 28px;
     padding-left: 20px;
+  }
+  .filter-text {
+    line-height: 70px;
+    font-size: 30px;
   }
 }
 .gray-background {
