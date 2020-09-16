@@ -101,7 +101,7 @@ export default {
       </wxc-ep-slider>
     </div>
     <div class="menu-part">
-      <div v-for="(v, index) in menuList" :key="index" class="menu-item">
+      <div v-for="(v, index) in menuList" :key="index" class="menu-item" @click="$router.push({name: 'add'})">
         <image style="width:100px; height:100px;" resize="stretch" :src="`/assets/images/home/${v.url}.png`"/>
         <text class="menu-title">{{ v.title }}</text>
       </div>
@@ -112,18 +112,18 @@ export default {
         <image style="width:30px; height:30px" src="/assets/images/home/right-arrow.png"/>
       </div>
       <div class="hot-card">
-        <div class="hot-card-item" style="height: 300px">
+        <div class="hot-card-item" style="height: 300px" @click="$router.push({name: 'add'})">
           <div class="tag">一居</div>
           <text class="hot-card-item-title">你的独立日</text>
           <text class="hot-card-item-info">一人畅享 拒绝束缚</text>
         </div>
-        <div style="justify-content: space-between;">
+        <div style="justify-content: space-between;" @click="$router.push({name: 'add'})">
           <div class="hot-card-item">
             <div class="tag">二居</div>
             <text class="hot-card-item-title">爱就宅一起</text>
             <text class="hot-card-item-info">生活相伴 完整体验</text>
           </div>
-          <div class="hot-card-item">
+          <div class="hot-card-item" @click="$router.push({name: 'add'})">
             <div class="tag">三居</div>
             <text class="hot-card-item-title">都市幸福家</text>
             <text class="hot-card-item-info">温暖时刻 欢乐满屋</text>

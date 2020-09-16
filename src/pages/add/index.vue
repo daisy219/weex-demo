@@ -68,7 +68,7 @@ export default {
 <template>
   <div class="add-index-page">
     <div class="top-content">
-      <image style="width:40px; height:40px;margin-right: 20px" src="/assets/images/add/back.png"/>
+      <image style="width:40px; height:40px;margin-right: 20px" src="/assets/images/add/back.png" @click="$router.go(-1)"/>
       <search-input :text="'请输入小区/商圈/地铁站等'" :gray="true"/>
       <image style="width:54px; height:46px" src="/assets/images/add/map.png"/>
     </div>

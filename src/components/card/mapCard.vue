@@ -22,7 +22,7 @@ export default {
 <div class="map-card-page">
   <div>
     <text class="title">{{ mapInfo.title }}</text>
-    <div class="direction-row align-end">
+    <div class="direction-row align-end" @click="$router.push({name: 'add'})">
       <text class="price">{{ mapInfo.price }}</text>
       <text class="unit">元/月起</text>
       <text class="info">.在租</text>
@@ -31,7 +31,7 @@ export default {
     </div>
     <text class="distance">距您{{ mapInfo.distance }}米</text>
   </div>
-  <image style="width:100px; height:100px" src="/assets/images/home/map.png"/>
+  <image style="width:100px; height:100px" src="/assets/images/home/map.png" @click="$router.push({name: 'find'})"/>
 </div>
 </template>
 
